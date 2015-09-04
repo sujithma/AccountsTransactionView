@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body ng-app='single-page-app'>
+    <div>
+        <ul>
+
+            <li><a ui-sref="index">Home</a></li>
+            <li><a ui-sref="about">About</a></li>
+        
+        </ul>
+       
+    </div>
+       
+  <div ui-view>
+  <!--
+     This DIV loads templates depending upon route.
+ -->
+  </div>
+
+
+  <script src="scripts/angular.min.js"></script>
+  <script src="scripts/angular-ui-router.min.js">   </script>       
+  <script src="scripts/script.js"></script>
+
+</body>
+</html>
