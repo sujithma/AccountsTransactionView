@@ -1,18 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap  -->
+
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Bootstrap/css/styles.css" rel="stylesheet">
+
 </head>
 <body ng-app='single-page-app'>
-    <div>
+    <!-- <div>
         <ul>
 
             <li><a ui-sref="index">Home</a></li>
-            <li><a ui-sref="about">About</a></li>
+           
         
         </ul>
        
-    </div>
+    </div> -->
        
   <div ui-view>
   <!--
@@ -20,10 +30,37 @@
  -->
   </div>
 
+  <!-- Scripts Open  -->
+  <!-- Angular Base  -->
 
-  <script src="scripts/angular.min.js"></script>
-  <script src="scripts/angular-ui-router.min.js">   </script>       
-  <script src="scripts/script.js"></script>
+  <script type="text/javascript" src="scripts/lib/angular.min.js"></script>
+  <script type="text/javascript" src="scripts/lib/angular-ui-router.min.js">   </script>       
+  <script type="text/javascript" src="scripts/lib/angular-messages.js"></script>
 
+  <script type="text/javascript" src="scripts/factory.js"></script>
+  <script type="text/javascript" src="scripts/controllers.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
+ 
+
+  <!-- Home Module  -->
+
+  <script type="text/javascript" src="scripts/user/userController.js"></script>
+  <script type="text/javascript" src="scripts/user/userFactory.js"></script>
+  <script type="text/javascript" src="scripts/user/user.js"></script>
+
+  <!-- DashBoard Module  -->
+  <script type="text/javascript" src="scripts/dashboard/dashboard.js"></script>
+  <script type="text/javascript" src="scripts/dashboard/dashboardController.js"></script>
+  <!-- Login Module  -->
+  <script type="text/javascript" src="scripts/login/loginController.js"></script>
+  <script type="text/javascript" src="scripts/login/login.js"></script>
+
+  <!-- JQuery and Bootstrap  -->
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="Bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Script Close  -->
+  
 </body>
 </html>
