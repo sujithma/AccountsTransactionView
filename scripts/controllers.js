@@ -13,12 +13,17 @@
 	                template: '<div ui-view></div>'
 	          })
 
-	    $urlRouterProvider.otherwise('login');      
+	    $urlRouterProvider.otherwise('index/login');      
 
      })
-	.controller('mainController',function($scope,userFact,$state){
-		
-		$state.go('index.dashboard');
+	.controller('mainController',function($scope,loginFact,$state){
+		loginFact.checkLogedIn()
+			    	.then(function(e){
+			    		console.log(e.data);
+			    		(e.data == '1') ? $state.go('index.dashboard') : $state.go('index.login')
+
+			    	})
+		//$state.go('index.dashboard');
 	})
 
 	
