@@ -1,12 +1,12 @@
 (function(){
 	'use strict';
 	var loginFact	=	angular.module('loginFactory',[])
-		.factory('loginFact', ['$http',function ($http) {
+		.factory('loginFact', ['$http','urls',function ($http,urls) {
 			 
 			 var loginObj = {};
 			
 			 loginObj.welcome = function () {
-					$http.get('http://acctr.loc/login')
+					$http.get(urls.BASE + 'login')
 						.then(function(response) {
 						   return response;
 						  }, function(response) {
@@ -16,14 +16,14 @@
 			 };
 			 
 			 loginObj.submit = function($params) {
-		 	    return $http.post('http://acctr.loc/logind',$params)
+		 	    return $http.post(urls.BASE +'logind',$params)
 			      .then(function(response){
 			    	return response;
 				})
 			 }
 				        
-			loginObj.checkLogedIn = function($params) {
-				return $http.post('http://acctr.loc/loginAuth',$params)
+			loginObj.checkLogedIn = function() {
+				return $http.post(urls.BASE +'loginAuth')
 			      .then(function(response){
 			    	return response;
 				})

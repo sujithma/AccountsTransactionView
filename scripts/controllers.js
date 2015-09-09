@@ -2,10 +2,11 @@
 'use strict';
 	var controllers=angular.module('controllers',[
 		'dashboard',
-		'login'
+		'login',
 		])
-	.config(function($stateProvider,$urlRouterProvider){
-	      $stateProvider
+	.config(function($stateProvider,$urlRouterProvider,$httpProvider){
+			$httpProvider.defaults.withCredentials = true;
+	      	$stateProvider
 	          .state('index',{
 	          		url:'/index',
 	          		abstract:true,
@@ -20,7 +21,7 @@
 		loginFact.checkLogedIn()
 			    	.then(function(e){
 			    		console.log(e.data);
-			    		(e.data == '1') ? $state.go('index.dashboard') : $state.go('index.login')
+			    		(e.data.status == 1) ? $state.go('index.dashboard') : $state.go('index.login')
 
 			    	})
 		//$state.go('index.dashboard');

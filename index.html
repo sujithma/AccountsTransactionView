@@ -6,24 +6,16 @@
     <meta charset="utf-8">
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    
+    <!-- Font awesome -->
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap  -->
-
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/styles.css" rel="stylesheet">
 
 </head>
-<body ng-app='single-page-app'>
-    <!-- <div>
-        <ul>
+<body ng-app='single-page-app'>  
 
-            <li><a ui-sref="index">Home</a></li>
-           
-        
-        </ul>
-       
-    </div> -->
-       
   <div ui-view>
   <!--
      This DIV loads templates depending upon route.
@@ -36,6 +28,8 @@
   <script type="text/javascript" src="scripts/lib/angular.min.js"></script>
   <script type="text/javascript" src="scripts/lib/angular-ui-router.min.js">   </script>       
   <script type="text/javascript" src="scripts/lib/angular-messages.js"></script>
+  <script type="text/javascript" src="scripts/lib/ngStorage.min.js"></script>
+  <script type="text/javascript" src="scripts/lib/satellizer.min.js"></script>
 
   <script type="text/javascript" src="scripts/factory.js"></script>
   <script type="text/javascript" src="scripts/controllers.js"></script>

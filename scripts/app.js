@@ -4,9 +4,15 @@
 		'ui.router',
 		'controllers',
 		'factories',
-		'ngMessages'
+		'ngMessages',
+		'ngStorage',
+
 		])
-	
+		.constant('urls', {
+       BASE: 'http://acctr.loc/'
+   		})
+
+		
 
 	
 })();

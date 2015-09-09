@@ -2,7 +2,8 @@
 'use strict';
 	var login=angular.module('login',['loginController'])
 		.config(function($stateProvider,$urlRouterProvider){
-			
+
+			//$authProvider.loginUrl = 'http://acctr.loc/logind';
 			$stateProvider
 	       		.state('index.login',{
 	          		url:'/login',
