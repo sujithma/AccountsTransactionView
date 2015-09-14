@@ -1,39 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app='AccountsTransaction'>
 <head>
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <!-- Font awesome -->
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-    <!-- Bootstrap  -->
-    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="Bootstrap/css/styles.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Main Inspinia CSS files -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
 
 </head>
-<body ng-app='single-page-app'>  
+<body>
 
   <div ui-view>
-  <!--
-     This DIV loads templates depending upon route.
- -->
+    
   </div>
 
   <!-- Scripts Open  -->
   <!-- Angular Base  -->
+  <script type="text/javascript" src="scripts/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="scripts/lib/plugins/jquery-ui/jquery-ui.js"></script>
+  <script type="text/javascript" src="scripts/lib/bootstrap/bootstrap.min.js"></script>
+  <script type="text/javascript" src="scripts/lib/angular/angular.js"></script>
+  <script type="text/javascript" src="scripts/lib/angular/angular-animate.min.js"></script>
+  <script type="text/javascript" src="scripts/lib/directives.js"></script>
+  
+  <script type="text/javascript" src="scripts/lib/ui-router/angular-ui-router.min.js">   </script>       
+  <script type="text/javascript" src="scripts/lib/angular/angular-messages.js"></script>
+  <script type="text/javascript" src="scripts/lib/plugins/metisMenu/jquery.metisMenu.js"></script>
+  <!-- SlimScroll -->
+  <script type="text/javascript" src="scripts/lib/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-  <script type="text/javascript" src="scripts/lib/angular.min.js"></script>
-  <script type="text/javascript" src="scripts/lib/angular-ui-router.min.js">   </script>       
-  <script type="text/javascript" src="scripts/lib/angular-messages.js"></script>
-  <script type="text/javascript" src="scripts/lib/ngStorage.min.js"></script>
-  <script type="text/javascript" src="scripts/lib/satellizer.min.js"></script>
+  <script type="text/javascript" src="scripts\lib\plugins\iCheck\icheck.min.js"></script>
+  
+  
+
+
+
 
   <script type="text/javascript" src="scripts/factory.js"></script>
   <script type="text/javascript" src="scripts/controllers.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
+
  
 
   <!-- Home Module  -->
@@ -45,17 +60,26 @@
   <!-- DashBoard Module  -->
   <script type="text/javascript" src="scripts/modules/dashboard/dashboard.js"></script>
   <script type="text/javascript" src="scripts/modules/dashboard/dashboardController.js"></script>
+  <script type="text/javascript" src="scripts/modules/dashboard/dashboardFactory.js"></script>
   <!-- Login Module  -->
   <script type="text/javascript" src="scripts/modules/login/loginFactory.js"></script>
   <script type="text/javascript" src="scripts/modules/login/loginController.js"></script>
   <script type="text/javascript" src="scripts/modules/login/login.js"></script>
+   <!-- Roles Module  -->
+  <script type="text/javascript" src="scripts/modules/roles/rolesFactory.js"></script>
+  <script type="text/javascript" src="scripts/modules/roles/rolesController.js"></script>
+  <script type="text/javascript" src="scripts/modules/roles/roles.js"></script>
 
-  <!-- JQuery and Bootstrap  -->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-  <script src="Bootstrap/js/bootstrap.min.js"></script>
+   <!-- navigation Module  -->
+  <script type="text/javascript" src="scripts/modules/navigation/navigation.js"></script>
+  
 
-  <!-- Script Close  -->
+
+
+
+  
+  
   
 </body>
 </html>

@@ -3,6 +3,8 @@
 	var controllers=angular.module('controllers',[
 		'dashboard',
 		'login',
+		'navigation',
+		'roles'
 		])
 	.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 			$httpProvider.defaults.withCredentials = true;
@@ -11,20 +13,21 @@
 	          		url:'/index',
 	          		abstract:true,
 	          		controller:'mainController',
-	                template: '<div ui-view></div>'
+	                templateUrl:'views/common/holder.html' 
 	          })
+
 
 	    $urlRouterProvider.otherwise('index/login');      
 
      })
-	.controller('mainController',function($scope,loginFact,$state){
-		loginFact.checkLogedIn()
-			    	.then(function(e){
-			    		console.log(e.data);
-			    		(e.data.status == 1) ? $state.go('index.dashboard') : $state.go('index.login')
 
-			    	})
-		//$state.go('index.dashboard');
+	.controller('mainController',function($scope,$state){
+		// loginFact.checkLogedIn()
+	 //    	.then(function(e){
+	 //    		console.log(e.data);
+	 //    		(e.data.status == 1) ? $state.go('index.dashboard') : $state.go('index.login')
+
+	 //    	})
 	})
 
 	

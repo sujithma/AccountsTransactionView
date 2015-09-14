@@ -13,7 +13,11 @@
 				.then(function(e){
 					console.log(e.data);
 					(e.data.id == '1') ? $state.go('index.dashboard') : $state.go('index.login');
-				})
+				},function(){
+
+					$state.go("index.dashboard");
+
+				});
 				 // $auth.login(credentials).then(function(data) {
 				 // 	console.log(data);
      //            //$state.go('users', {});

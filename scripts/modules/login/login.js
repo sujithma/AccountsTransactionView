@@ -8,7 +8,12 @@
 	       		.state('index.login',{
 	          		url:'/login',
 	          		controller:'loginController',
-	                templateUrl: 'scripts/modules/login/login.html'
+	                templateUrl: 'views/login/login.html'
+	          })
+       			.state('index.home',{
+	          		url:'/home',
+	          		//controller:'LoginController',
+	                template: '<h1>welcome</h1>'
 	          })
 	       		
 	});

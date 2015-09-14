@@ -3,7 +3,9 @@
 
 	var factories = angular.module('factories',[
 		'userFactory',
-		'loginFactory'
+		'loginFactory',
+		'dashboardFactory',
+		'rolesFactory'
 	]);	
 
 })();

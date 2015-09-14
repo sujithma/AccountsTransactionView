@@ -1,18 +1,19 @@
 (function(){
 'use strict';
-	var app=angular.module('single-page-app',[
+	var app=angular.module('AccountsTransaction',[
 		'ui.router',
 		'controllers',
 		'factories',
 		'ngMessages',
-		'ngStorage',
+		'ngAnimate',
+	    'inspinia'
 
 		])
 		.constant('urls', {
-       BASE: 'http://acctr.loc/'
+	       BASE: 'http://acctr.loc/'
    		})
-
+		
 		
 
-	
+
 })();
