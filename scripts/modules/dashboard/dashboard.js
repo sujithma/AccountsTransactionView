@@ -11,14 +11,7 @@
           })
          
 
-          .state('index.logout',{
-              url:'/logout',
-              controller:function(){
-                
-              },
-              template: 'sdsd'
-          })
-         
+          
 
        	
        	})	

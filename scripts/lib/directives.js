@@ -83,13 +83,25 @@ function iboxTools($timeout) {
                     ibox.resize();
                     ibox.find('[id^=map-]').resize();
                 }, 50);
-            },
+            }
                 // Function for close ibox
-                $scope.closebox = function () {
-                    var ibox = $element.closest('div.ibox');
-                    ibox.remove();
-                }
+                // $scope.closebox = function () {
+                //     var ibox = $element.closest('div.ibox');
+                //     ibox.remove();
+                // }
         }
+    };
+};
+
+
+/**
+ * Custome Edit Directive
+ */
+function editBox($timeout) {
+    return {
+        restrict: 'A',
+        scope: true,
+        templateUrl: 'views/common/editBox.html'
     };
 };
 
@@ -362,3 +374,4 @@ angular
     .directive('customValid', customValid)
     .directive('fullScroll', fullScroll)
     .directive('closeOffCanvas', closeOffCanvas)
+    .directive('editBox',editBox)

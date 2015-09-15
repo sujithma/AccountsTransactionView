@@ -28,7 +28,12 @@
 			    	return response;
 				})
 			 }	    
-			 
+			 loginObj.logout = function() {
+				return $http.get(urls.BASE +'logout')
+			      .then(function(response){
+			    	return response;
+				})
+			 }	    
 			 
 			 
 			 return loginObj;

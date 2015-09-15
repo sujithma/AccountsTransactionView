@@ -5,9 +5,9 @@
             <div class="ibox-title">
                 <h5>Current Roles</h5>
 
-                <div ibox-tools></div>
+                <div ibox-tools></div><a ui-sref="index.roles.add">Add</a>
             </div>
-            <a ui-sref="index.roles.add">Add</a>
+            
             <div class="ibox-content">
 
                 <table class="table">
@@ -23,6 +23,9 @@
                         <td>{{ role.id }}</td>
                         <td>{{ role.name }}</td>
                         <td>{{ role.created_at }}</td>
+                        <td><div edit-box></div>
+                         <a ui-sref="index.roles.edit({id:role.id})">Edit</a>
+                            <a ng-click="delete(role.id)">delete</a></td>
                     </tr>
                     </tbody>
                 </table>

@@ -5,7 +5,8 @@
 		'userFactory',
 		'loginFactory',
 		'dashboardFactory',
-		'rolesFactory'
+		'rolesFactory',
+		'categoriesFactory'
 	]);	
 
 })();

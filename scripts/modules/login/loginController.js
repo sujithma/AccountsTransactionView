@@ -18,11 +18,14 @@
 					$state.go("index.dashboard");
 
 				});
-				 // $auth.login(credentials).then(function(data) {
-				 // 	console.log(data);
-     //            //$state.go('users', {});
-     //        	});
 			}
+
+			loginFact.logout()
+				.then(function(e){
+					console.log(e.data.status);
+					$state.go('index.login');
+				});
+				
 
 		});
 })();

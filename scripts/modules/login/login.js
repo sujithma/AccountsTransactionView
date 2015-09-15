@@ -15,6 +15,14 @@
 	          		//controller:'LoginController',
 	                template: '<h1>welcome</h1>'
 	          })
+       			.state('index.logout',{
+	                url:'/logout',
+	                controller:'loginController',
+	                templateUrl: 'views/login/login.html'
+          })
+         
+
+
 	       		
 	});
 	

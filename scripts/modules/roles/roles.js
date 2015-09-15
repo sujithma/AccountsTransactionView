@@ -2,10 +2,10 @@
 	'use strict';
 	var role = angular.module('roles',['rolesController'])
 	.config(function($stateProvider,$urlRouterProvider){
-		$urlRouterProvider.otherwise('index.roles.view');
+		$urlRouterProvider.otherwise('index.roles');
 		$stateProvider
 			.state('index.roles',{
-				url : '/view',
+				url : '/roles',
 				controller : 'rolesController',
 				templateUrl : 'views/roles/roles.html'
 

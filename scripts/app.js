@@ -5,6 +5,7 @@
 		'controllers',
 		'factories',
 		'ngMessages',
+		'ui-notification',
 		'ngAnimate',
 	    'inspinia'
 

@@ -1,6 +1,6 @@
 (function(){
 	'use strict';
-	var dashFact	=	angular.module('dashboardFactory',[])
+	var dashboardFact	=	angular.module('dashboardFactory',[])
 		.factory('dashboardFact', ['$http','urls',function ($http,urls) {
 			 
 			 var dashObj = {};
@@ -10,7 +10,10 @@
 			      .then(function(response){
 			    	return response;
 				})
-			 }	    
+			 }	  
+
+			
+			   
 			 
 			 
 			 
