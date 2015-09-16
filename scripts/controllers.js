@@ -27,7 +27,7 @@
 		loginFact.checkLogedIn()
 	    	.then(function(e){
 	    		console.log(e.data);
-	    		(e.data.status == 1) ? $state.go('index.dashboard') : $state.go('index.login')
+	    		//(e.data.status == 1) ? $state.go('index.dashboard') : $state.go('index.login')
 
 	    	})
 	})

@@ -19,13 +19,14 @@
 
 				});
 			}
-
+				
+		})
+		.controller('logoutController',function($scope,loginFact,$state){
 			loginFact.logout()
 				.then(function(e){
 					console.log(e.data.status);
 					$state.go('index.login');
 				});
-				
 
 		});
 })();

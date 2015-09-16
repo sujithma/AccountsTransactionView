@@ -11,8 +11,10 @@
 				return $http.post(urls.BASE + 'role_add',$role)
 			};
 			rolesObj.delet	=	function($id){
-				return $id
-				//return $http.post(urls.BASE + 'role_delete',$id)
+				return $http.post(urls.BASE + 'role_delete',$id)
+			};
+			rolesObj.update	=	function($role){
+				return $http.post(urls.BASE + 'role_edit',$role)
 			};
 
 		return rolesObj;	

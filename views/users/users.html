@@ -24,8 +24,8 @@
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
                         <td>
-                            <a ui-sref="index.users.edit({id:user.id})">Edit</a>
-                            <a ng-click="delete(user.id)">delete</a>
+                            <a ui-sref="index.users.edit({id:user.id})"> <i class="glyphicon glyphicon-edit"></i></a>
+                            <a ng-click="delete(user.id)"><i class="glyphicon glyphicon-trash"></i></a>
                         </td>
                     </tr>
                     </tbody>

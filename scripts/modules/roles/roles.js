@@ -6,6 +6,7 @@
 		$stateProvider
 			.state('index.roles',{
 				url : '/roles',
+				cache:false,
 				controller : 'rolesController',
 				templateUrl : 'views/roles/roles.html'
 
@@ -17,5 +18,10 @@
 				templateUrl : 'views/roles/roles_add.html'
 
 			})
+			.state('index.roles.edit',{
+	          	url:'/roles/:id',
+	          	controller:'rolesControllerEdit',
+	               templateUrl : 'views/roles/roles_edit.html'
+	        })
 	})
 })();

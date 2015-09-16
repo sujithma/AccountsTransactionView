@@ -17,7 +17,7 @@
 	          })
        			.state('index.logout',{
 	                url:'/logout',
-	                controller:'loginController',
+	                controller:'logoutController',
 	                templateUrl: 'views/login/login.html'
           })
          

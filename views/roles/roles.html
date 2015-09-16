@@ -23,9 +23,9 @@
                         <td>{{ role.id }}</td>
                         <td>{{ role.name }}</td>
                         <td>{{ role.created_at }}</td>
-                        <td><div edit-box></div>
-                         <a ui-sref="index.roles.edit({id:role.id})">Edit</a>
-                            <a ng-click="delete(role.id)">delete</a></td>
+                        <td><!-- <div edit-box></div> -->
+                         <a ui-sref="index.roles.edit({id:role.id})"> <i class="glyphicon glyphicon-edit"></i></a>
+                            <a ng-click="delete(role.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
                     </tr>
                     </tbody>
                 </table>

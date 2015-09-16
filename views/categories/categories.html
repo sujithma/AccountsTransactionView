@@ -26,7 +26,8 @@
                         <td>{{ category.parent_id }}</td>
                         <td>{{ category.transactio_type }}</td>
 
-                        <td><div edit-box></div></td>
+                        <td><a ui-sref="index.categories.edit({id:category.id})"> <i class="glyphicon glyphicon-edit"></i></a>
+                            <a ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
                     </tr>
                     </tbody>
                 </table>
