@@ -14,17 +14,17 @@
 				console.log(usersData.length);
 				return usersData;
 			}
-			// this.spliceData = function(index,count){
-			// 	var $id = -1;
-			// 	for(var i = 0, len = usersData.length; i < len; i++) {
-			// 	    if (usersData[i].id === index.id) {
-			// 	        $id = i;
-			// 	        break;
-			// 	    }
-			// 	}
-			// 	usersData.splice($id,count);
+			this.spliceData = function(index,count){
+				var $id = -1;
+				for(var i = 0, len = usersData.length; i < len; i++) {
+				    if (usersData[i].id === index.id) {
+				        $id = i;
+				        break;
+				    }
+				}
+				usersData.splice($id,count);
 			
-			//  }
+			}
 			//  this.findData = function(id){
 			//  	var $data = {};
 

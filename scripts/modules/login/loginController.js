@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
-	var loginController	=	angular.module('loginController',[])	
-		.controller('loginController',function($scope,loginFact,$state){
+	var loginController	=	angular.module('loginController',['authService'])	
+		.controller('loginController',function($scope,loginFact,$state,authService){
 
 			console.log("login Controller");
 			$scope.submitForm = function() {
@@ -11,11 +11,19 @@
 			    };
 			loginFact.submit($params)
 				.then(function(e){
-					console.log(e.data);
-					(e.data.id == '1') ? $state.go('index.dashboard') : $state.go('index.login');
+					authService.setData(e.data);
+					var authStatus = authService.authenticate();
+					if(authStatus == 'admin'){
+						$state.go('index.dashboard');
+					}else if(authStatus == 'user'){
+						$state.go('index.dashboard');
+					}
+					else{
+						 $state.go('index.login');
+						}
 				},function(){
 
-					$state.go("index.dashboard");
+					$state.go("index.login");
 
 				});
 			}

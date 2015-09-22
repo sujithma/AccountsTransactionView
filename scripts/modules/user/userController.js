@@ -7,20 +7,21 @@
 			    		userService.setData(e.data);
 			    		$scope.data = userService.getData();
 			    	})
-
-			$scope.delete = function(id){
-				userFact.deete(id)
-			    	.then(function(e){
-			    		$scope.data	=	e.data;
-			    		  Notification.success('Success notification');
-			    		  $scope.data.splice(id,1);
-			    	},function(){
-			    		  Notification.warning('Success notification');
-			    	})	
-			}   
-
-			
-
+			$scope.delete = function($id){
+				var $id = {'id' : $id};
+				var conf = confirm('Are You sure to Delete');
+				if(conf == true) {
+					userFact.delete($id)
+						.then(function(response){
+							  Notification.success('Success notification');
+				    		  userService.spliceData($id,1);
+						},function(){
+							Notification.warning('error notification');
+						})
+					}else{
+						return false;
+					}
+			}
 		})
 		.controller('userControllerEdit',function($state,$stateParams,$scope){
 			$scope.id = $stateParams.id;
