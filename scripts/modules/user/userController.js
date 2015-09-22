@@ -1,10 +1,11 @@
 (function(){
 	'use strict';
-	var userController	=	angular.module('userController',[])
-		.controller('userController',function($scope,userFact,$state,Notification){
+	var userController	=	angular.module('userController',['userService'])
+		.controller('userController',function($scope,userFact,$state,Notification,userService){
 			userFact.viewUsers()
 			    	.then(function(e){
-			    		$scope.data	=	e.data;
+			    		userService.setData(e.data);
+			    		$scope.data = userService.getData();
 			    	})
 
 			$scope.delete = function(id){
@@ -24,12 +25,27 @@
 		.controller('userControllerEdit',function($state,$stateParams,$scope){
 			$scope.id = $stateParams.id;
 		})
-		.controller('userControllerAdd',function($state,$scope,rolesFact){
+		.controller('userControllerAdd',function($state,$scope,rolesFact,userFact,userService,Notification){
 			$scope.rolesData = [];
 			rolesFact.Roles()
 		    	.then(function(e){
 		    		$scope.rolesData = e.data;
 		    	})
+
+		     $scope.save	=	function(user){
+		     	if(user == null){return false;}
+		     	userFact.add(user)
+		     		.then(function(response){
+		     			user.id = response.data.userid;
+		     			userService.pushData(user);
+		     			Notification.success('Success notification');
+		     			$state.go('index.users');
+
+		     		},function(){
+		     			Notification.warning('error notification');
+		     		})	
+		    	
+		    };
 		    	
 
 		})

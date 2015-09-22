@@ -8,8 +8,8 @@
             <div class="ibox-content">
                 <form class="form-horizontal" name="addUser">
                    <div class="form-group"><label class="col-lg-2 control-label">Full Name</label>
-                        <div class="col-lg-10"><input type="text" name="fullname" placeholder="fullname" class="form-control" ng-model="fullname" required> 
-                            <div ng-messages="addUser.fullname.$error"  style="color:maroon" role="alert" ng-show="addUser.fullname.$touched" >
+                        <div class="col-lg-10"><input type="text" name="name" placeholder="name" class="form-control" ng-model="user.name" required> 
+                            <div ng-messages="addUser.name.$error"  style="color:maroon" role="alert" ng-show="addUser.name.$touched" >
                                  <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                             </div> 
                         </div>
@@ -17,13 +17,13 @@
                     <div class="form-group"><label class="col-lg-2 control-label">Role</label>
                         <div class="col-lg-10">
                             <select
-                                ng-model="role"
+                                ng-model="user.role"
                                 ng-options="item.id as item.name for item in rolesData" required>
                             </select>
                         </div> 
                     </div>
                     <div class="form-group"><label class="col-lg-2 control-label">Email</label>
-                        <div class="col-lg-10"><input type="email" name="email" placeholder="email" class="form-control" ng-model="email" required> 
+                        <div class="col-lg-10"><input type="email" name="email" placeholder="email" class="form-control" ng-model="user.email" required> 
                             <div ng-messages="addUser.email.$error" style="color:maroon" role="alert" ng-show="addUser.email.$touched">  
                                 <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                             </div>
@@ -31,7 +31,7 @@
                     </div>
 
                      <div class="form-group"><label class="col-lg-2 control-label">Password</label>
-                        <div class="col-lg-10"><input type="password" name="password" placeholder="password" class="form-control" ng-model="password" required ng-minlength="6"> 
+                        <div class="col-lg-10"><input type="password" name="password" placeholder="password" class="form-control" ng-model="user.password" required ng-minlength="6"> 
                             <div ng-messages="addUser.password.$error" style="color:maroon" role="alert" ng-show="addUser.password.$touched" > 
                                 <ng-messages-include src="views/common/messages.html"></ng-messages-include>  
                             </div>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-sm btn-white" type="submit" ng-click="save()">Save</button>
+                            <button class="btn btn-sm btn-white" type="submit" ng-click="save(user)">Save</button>
                         </div>
                     </div>
                 </form>

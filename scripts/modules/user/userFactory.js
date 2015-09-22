@@ -8,6 +8,9 @@
 			 userObj.viewUsers = function () {
 					return $http.get(urls.BASE + 'users')
 			 };	 
+			 userObj.add	=	function($user){
+				return $http.post(urls.BASE + 'user_add',$user)
+			};
 			 return userObj;
 			}]);
 })();	
