@@ -6,6 +6,7 @@
 			    	.then(function(e){
 			    		$scope.data	=	e.data;
 			    	})
+
 			$scope.delete = function(id){
 				userFact.deete(id)
 			    	.then(function(e){
@@ -15,10 +16,22 @@
 			    	},function(){
 			    		  Notification.warning('Success notification');
 			    	})	
-			}    	
+			}   
+
+			
+
 		})
 		.controller('userControllerEdit',function($state,$stateParams,$scope){
 			$scope.id = $stateParams.id;
+		})
+		.controller('userControllerAdd',function($state,$scope,rolesFact){
+			$scope.rolesData = [];
+			rolesFact.Roles()
+		    	.then(function(e){
+		    		$scope.rolesData = e.data;
+		    	})
+		    	
+
 		})
 		
 })();

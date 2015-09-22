@@ -15,6 +15,11 @@
 	          		controller:'userControllerEdit',
 	                template: '<p>Edit id is {{id}}</p>'
 	          })
+       			.state('index.users.add',{
+	          		url:'/add',
+	          		controller:'userControllerAdd',
+	                templateUrl: 'views/users/users_add.html'
+	          })
 	       		
 	       		
 	       		
