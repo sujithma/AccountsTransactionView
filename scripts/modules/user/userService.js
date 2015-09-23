@@ -25,22 +25,22 @@
 				usersData.splice($id,count);
 			
 			}
-			//  this.findData = function(id){
-			//  	var $data = {};
+			 this.findData = function(id){
+			 	var $data = {};
 
-			// 	for(var i = 0, len = usersData.length; i < len; i++) {
-			// 	    if (rolesData[i].id == id) {
-			// 	        $data = {
-			// 	        	'id' :usersData[i].id,
-			// 	        	'name':usersData[i].name};
+				for(var i = 0, len = usersData.length; i < len; i++) {
+				    if (rolesData[i].id == id) {
+				        $data = {
+				        	'id' :usersData[i].id,
+				        	'name':usersData[i].name};
 				        
-			// 	        break;
-			// 	    }
-			// 	}
-			// 	console.log($data);
-			// 	return $data;
+				        break;
+				    }
+				}
+				console.log($data);
+				return $data;
 
-			//  }
+			 }
 			//  this.updateData = function(role){
 
 			//  	for(var i = 0, len = usersData.length; i < len; i++) {

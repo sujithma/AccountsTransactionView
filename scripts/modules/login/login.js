@@ -5,11 +5,6 @@
 
 			//$authProvider.loginUrl = 'http://acctr.loc/logind';
 			$stateProvider
-	       		.state('index.login',{
-	          		url:'/login',
-	          		controller:'loginController',
-	                templateUrl: 'views/login/login.html'
-	          })
        			.state('index.home',{
 	          		url:'/home',
 	          		//controller:'LoginController',

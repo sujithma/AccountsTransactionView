@@ -27,25 +27,38 @@
                 </div>
             </li>
             <li>
-                <a ui-sref="index.users"><i class="fa fa-th-large"></i> <span class="nav-label">{{ 'Users'  }}</span> <span class="fa arrow"></span></a>
+                <a ui-sref="index.users"><i class="fa fa-users"></i> <span class="nav-label">{{ 'Users'  }}</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active"><a ui-sref="index.users">{{ 'View'  }} </a></li>
                 </ul>
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active"><a ui-sref="index.users.add">{{ 'Add New User'  }} </a></li>
                 </ul>
-                <ul class="nav nav-second-level">
-                    <li ui-sref-active="active"><a ui-sref="index.users.settings">{{ 'Settings'  }} </a></li>
-                </ul>
+                <!-- <ul class="nav nav-second-level">
+                    <li>
+                        <a ui-sref="index.users.settings"></i>{{ 'Settings'  }}  <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="">Assign Role</a>
+                            </li>
+                            <li>
+                                <a href="">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="">Third Level Item</a>
+                            </li>
+
+                        </ul>
+                </ul> -->
             </li>
             <li>
-                <a ui-sref="index.roles"><i class="fa fa-th-large"></i> <span class="nav-label">{{ 'Roles'  }}</span> <span class="fa arrow"></span></a>
+                <a ui-sref="index.roles"><i class="fa fa-cog fa-fw"></i><span class="nav-label">{{ 'Roles'  }}</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active"><a ui-sref="index.roles">{{ 'View'  }} </a></li>
                 </ul>
             </li>
             <li>
-                <a ui-sref="index.categories"><i class="fa fa-th-large"></i> <span class="nav-label">{{ 'Categories'  }}</span> <span class="fa arrow"></span></a>
+                <a ui-sref="index.categories"><i class="fa fa-database"></i> <span class="nav-label">{{ 'Categories'  }}</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active"><a ui-sref="index.categories">{{ 'View'  }}</a></li>
                 </ul>

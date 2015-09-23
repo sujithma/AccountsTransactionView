@@ -2,7 +2,7 @@
 	'use strict';
 	var loginController	=	angular.module('loginController',['authService'])	
 		.controller('loginController',function($scope,loginFact,$state,authService){
-
+			$scope.error = false;
 			console.log("login Controller");
 			$scope.submitForm = function() {
 			    var $params = {
@@ -11,6 +11,13 @@
 			    };
 			loginFact.submit($params)
 				.then(function(e){
+
+					if(e.data.status == 401){
+						$scope.error = true;
+						console.log($scope.error);
+						$state.go("login");
+					}
+					
 					authService.setData(e.data);
 					var authStatus = authService.authenticate();
 					if(authStatus == 'admin'){
@@ -19,11 +26,11 @@
 						$state.go('index.dashboard');
 					}
 					else{
-						 $state.go('index.login');
+						 $state.go('login');
 						}
-				},function(){
-
-					$state.go("index.login");
+				},function(error){
+					
+					$state.go("login");
 
 				});
 			}
@@ -33,7 +40,7 @@
 			loginFact.logout()
 				.then(function(e){
 					console.log(e.data.status);
-					$state.go('index.login');
+					$state.go('login');
 				});
 
 		});

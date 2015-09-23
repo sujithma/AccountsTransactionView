@@ -16,6 +16,9 @@
 			rolesObj.update	=	function($role){
 				return $http.post(urls.BASE + 'role_edit',$role)
 			};
+			rolesObj.findRole	=	function($role){
+				return $http.post(urls.BASE + 'role_find',$role)
+			};
 
 		return rolesObj;	
 		}]);

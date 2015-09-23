@@ -11,7 +11,13 @@
 	.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 			$httpProvider.defaults.withCredentials = true;
 	      	$stateProvider
-	          .state('index',{
+	      		.state('login',{
+	      			url :'/login',
+	          		controller:'loginController',
+	                templateUrl: 'views/login/login.html'
+	          
+	      		})
+	          	.state('index',{
 	          		url:'/index',
 	          		abstract:true,
 	          		controller:'mainController',
@@ -19,7 +25,7 @@
 	          })
 
 
-	    $urlRouterProvider.otherwise('index/login');      
+	    $urlRouterProvider.otherwise('/login');      
 
      })
 
@@ -27,7 +33,7 @@
 		loginFact.checkLogedIn()
 	    	.then(function(e){
 	    		console.log(e.data);
-	    		(e.data.status == 1) ? $state.go($state.$current) : $state.go('index.login')
+	    		(e.data.status == 1) ? $state.go($state.$current) : $state.go('login')
 
 	    	})
 	})

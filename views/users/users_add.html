@@ -38,7 +38,7 @@
                         </div> 
                     </div>
                     <div class="form-group"><label class="col-lg-2 control-label">Confirm Password</label>
-                        <div class="col-lg-10"><input type="password" name="confirm_password" placeholder="confirm_password" class="form-control" ng-model="confirm_password" required ng-minlength="6" compare-to="password"> 
+                        <div class="col-lg-10"><input type="password" name="confirm_password" placeholder="confirm_password" class="form-control" ng-model="confirm_password" required compare-to="addUser.user.password"> 
                             <div ng-messages="addUser.confirm_password.$error" style="color:maroon" role="alert" ng-show="addUser.confirm_password.$touched" >   
                                 <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                             </div>

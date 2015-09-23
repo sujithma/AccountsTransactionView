@@ -31,6 +31,7 @@
 			rolesFact.Roles()
 		    	.then(function(e){
 		    		$scope.rolesData = e.data;
+					$scope.user = { role : $scope.rolesData[0].name};
 		    	})
 
 		     $scope.save	=	function(user){
@@ -49,6 +50,14 @@
 		    };
 		    	
 
+		})
+		.controller('userControllerSettings',function($state,$scope,rolesFact){
+			var $id = {'id' : 1};
+				rolesFact.findRole($id)
+				.then(function(e){
+					$scope.role_name = e.data.name;
+					console.log($scope.role_name);	
+				})
 		})
 		
 })();

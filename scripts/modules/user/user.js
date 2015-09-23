@@ -11,7 +11,7 @@
 	                templateUrl: 'views/users/users.html'
 	          })
        			.state('index.users.edit',{
-	          		url:'/users/:id',
+	          		url:'/edit/:id',
 	          		controller:'userControllerEdit',
 	                template: '<p>Edit id is {{id}}</p>'
 	          })
@@ -19,6 +19,11 @@
 	          		url:'/add',
 	          		controller:'userControllerAdd',
 	                templateUrl: 'views/users/users_add.html'
+	          })
+       			.state('index.users.settings',{
+	          		url:'/settings/:id',
+	          		controller:'userControllerSettings',
+	                template: 'settings page'
 	          })
 	       		
 	       		
