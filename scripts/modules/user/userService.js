@@ -27,12 +27,13 @@
 			}
 			 this.findData = function(id){
 			 	var $data = {};
-
+			 	console.log(id);
 				for(var i = 0, len = usersData.length; i < len; i++) {
-				    if (rolesData[i].id == id) {
+				    if (usersData[i].id == id) {
 				        $data = {
 				        	'id' :usersData[i].id,
-				        	'name':usersData[i].name};
+				        	'name':usersData[i].name,
+				        	'role_id':usersData[i].role_id};
 				        
 				        break;
 				    }

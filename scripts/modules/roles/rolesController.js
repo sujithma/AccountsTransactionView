@@ -1,8 +1,7 @@
 (function(){
 	'use strict';
-	var rolesController	=	angular.module('rolesController',['rolesService'])
+	var rolesController	=	angular.module('rolesController',[])
 		.controller('rolesController',function(rolesFact,$scope,$state,Notification,rolesService){
-			$scope.data = rolesService.getData()||[];
 			rolesFact.Roles()
 		    	.then(function(e){
 		    		rolesService.setData(e.data);
@@ -39,8 +38,15 @@
 		.controller('rolesControllerEdit',function($state,$stateParams,$scope,rolesService,rolesFact,Notification){
 			$scope.id = $stateParams.id;
 			$scope.role = rolesService.findData($scope.id);
+			console.log($scope.role_name);
+			if( $scope.role_name == null ||  $scope.role_name == ''){
+					return false;
+				}else{
 			$scope.update	=	function(){
 				var $role =	{'role_name': $scope.role_name,'id':$scope.id};
+				
+
+				
 				rolesFact.update($role)
 					.then(function(resp){
 						rolesService.updateData($role);
@@ -50,8 +56,10 @@
 					},function(){
 
 					})
+				
 
 			};
+			}
 
 
 		})

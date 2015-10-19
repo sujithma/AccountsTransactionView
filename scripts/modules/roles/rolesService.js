@@ -30,9 +30,7 @@
 
 				for(var i = 0, len = rolesData.length; i < len; i++) {
 				    if (rolesData[i].id == id) {
-				        $data = {
-				        	'id' :rolesData[i].id,
-				        	'name':rolesData[i].name};
+				        $data = rolesData[i].name
 				        
 				        break;
 				    }

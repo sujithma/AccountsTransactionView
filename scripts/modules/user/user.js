@@ -23,7 +23,7 @@
        			.state('index.users.settings',{
 	          		url:'/settings/:id',
 	          		controller:'userControllerSettings',
-	                template: 'settings page'
+	                templateUrl: 'views/users/users_settings.html'
 	          })
 	       		
 	       		

@@ -7,7 +7,8 @@
 		'ngMessages',
 		'ui-notification',
 		'ngAnimate',
-	    'inspinia'
+	    'inspinia',
+	    'services',
 
 		])
 		.constant('urls', {

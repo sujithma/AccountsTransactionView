@@ -3,3 +3,4 @@ give various type of acces to user
 Repport generation 
 user profile 
 soft delete
+transactions

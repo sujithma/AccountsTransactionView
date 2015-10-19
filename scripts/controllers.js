@@ -32,7 +32,7 @@
 	.controller('mainController',function($scope,$state,loginFact){
 		loginFact.checkLogedIn()
 	    	.then(function(e){
-	    		console.log(e.data);
+	    		$scope.userData = e.data.user;
 	    		(e.data.status == 1) ? $state.go($state.$current) : $state.go('login')
 
 	    	})

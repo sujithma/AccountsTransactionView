@@ -1,1 +1,35 @@
-<di
+<div class="wrapper wrapper-content animated fadeInRight" >
+<div class="row" ui-view>
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Users > {{ userDetails.name }}</h5>
+
+                <div ibox-tools></div>
+            </div>
+            
+            <div class="ibox-content">
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Privileges</th>
+                       
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="wrapper wrapper-content animated fadeIn" >
+                       	<td>Account Type</td>
+                        <td>{{ role_name }}<a ng-click=""> <i class="glyphicon glyphicon-edit" tooltip="change"></i></a></td>
+ 
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+</div>

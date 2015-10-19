@@ -1,0 +1,42 @@
+
+<!--login modal-->
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content ">
+      <div class="modal-header">
+          <h1 class="text-center">Login</h1>
+      </div>
+      <div class="modal-body">
+        <form name="loginForm" ng-submit="submitForm()" novalidate>
+
+          <div class="form-group">
+            <input type="email" name="userEmail" ng-model="email" ng-minlength="5" ng-maxlength="20" required  class="form-control input-lg" placeholder="Email"/>
+
+              <div ng-messages="loginForm.userEmail.$error" style="color:maroon" role="alert" ng-show="loginForm.userEmail.$touched">
+                <div ng-message="required">Please Enter Email</div>
+                <div ng-message="minlength">Your field is too short</div>
+                <div ng-message="maxlength">Your field is too long</div>
+                <div ng-message="email">Enter an Valid Email Address </div>
+              </div>
+          </div>
+
+           <div class="form-group">
+            <input type="password" name="userPassword" ng-model="password" ng-minlength="5" ng-maxlength="20" required  class="form-control input-lg" placeholder="Password"/>
+              <div ng-messages="loginForm.userPassword.$error" style="color:maroon" role="alert" ng-show="loginForm.userPassword.$touched">
+                <div ng-message="required">Please Enter Password</div>
+              </div>
+               <div ng-show="error"><label class="text-danger">invalid credentials</label></div>
+          </div>
+          <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="loginForm.$invalid">Sign In</button>
+             <span><a href="#">Need help?</a></span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+          
+      </div>
+  </div>
+  </div>
+</div>
+

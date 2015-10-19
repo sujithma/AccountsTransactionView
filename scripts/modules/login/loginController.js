@@ -2,8 +2,14 @@
 	'use strict';
 	var loginController	=	angular.module('loginController',['authService'])	
 		.controller('loginController',function($scope,loginFact,$state,authService){
+
+			loginFact.checkLogedIn()
+	    	.then(function(e){
+	    		(e.data.status == 1) ? $state.go('index.dashboard') : $state.go('login')
+
+	    	})
+
 			$scope.error = false;
-			console.log("login Controller");
 			$scope.submitForm = function() {
 			    var $params = {
 			      "email": $scope.email,
@@ -39,7 +45,6 @@
 		.controller('logoutController',function($scope,loginFact,$state){
 			loginFact.logout()
 				.then(function(e){
-					console.log(e.data.status);
 					$state.go('login');
 				});
 
