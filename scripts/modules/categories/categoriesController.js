@@ -6,6 +6,19 @@
 				.then(function(responseData){
 					$scope.data	=	responseData.data;
 				})
+			$scope.save = function(category){
+				var $parent_id = (typeof(category.parent_id) != 'undefined') ? category.parent_id : '';
+				var $data = {name: category.name,transaction_type:category.transaction_type,parent_id : $parent_id};
+				console.log(category);
+				categoriesFact.addCategories($data)
+					.then(function(success){
+						console.log(success);
+					},function(error){
+
+					})
+
+
+			}
 		})
 
 })();

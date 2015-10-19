@@ -1,6 +1,6 @@
 add user module
 give various type of acces to user
-Repport generation 
+Report generation 
 user profile 
 soft delete
 transactions

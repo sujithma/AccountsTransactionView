@@ -6,6 +6,9 @@
 				categoriesObj.viewCategories	=	function(){
 					return $http.get(urls.BASE + 'categories')
 				};
+				categoriesObj.addCategories	=	function(data){
+					return $http.post(urls.BASE + 'categories/add',data)
+				};
 			return categoriesObj;	
 		}]);
 })();

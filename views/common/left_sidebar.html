@@ -4,14 +4,17 @@
         <ul side-navigation class="nav" id="side-menu">
             <li class="nav-header">
 
-                <div class="dropdown profile-element" dropdown>
+              <div class="dropdown profile-element" dropdown>
                     <img alt="image" class="img-rounded" width="60px" height="60px" src="img/user_placeholder.png"/>
-                    <a class="dropdown-toggle" dropdown-toggle href>
+                
+                    <a class="dropdown-toggle" dropdown-toggle ui-sref="index.dashboard">
                             <span class="clear">
                                 <span class="block m-t-xs">
                                     <strong class="font-bold">{{ userData.name }}</strong>
                              </span>
                                 <span class="text-muted text-xs block"> {{ userData.email }} </span>
+                                <span class="text-muted text-xs block"><a ui-sref="profile"> Profile</a> </span>
+
                             </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -61,6 +64,8 @@
                 <a ui-sref="index.categories"><i class="fa fa-database"></i> <span class="nav-label">{{ 'Categories'  }}</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active"><a ui-sref="index.categories">{{ 'View'  }}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="index.categories.add">{{ 'Add'  }}</a></li>
+                    
                 </ul>
             </li>
 
