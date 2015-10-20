@@ -2,7 +2,8 @@
 'use strict';
 	var services=angular.module('services',[
 		'rolesService',
-		'userService'
+		'userService',
+		'categoryService'
 		])
 	
 	
