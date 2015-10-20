@@ -14,7 +14,7 @@
 				.state('index.categories.add',{
 					url	:	'/add',
 					cashe : false,
-					controller	:	'categoriesController',
+					controller	:	'categoriesControllerAdd',
 					templateUrl	:	'views/categories/add_categories.html'
 
 				})

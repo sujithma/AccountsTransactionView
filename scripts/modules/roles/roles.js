@@ -15,7 +15,7 @@
 			.state('index.roles.add',{
 				url : '/add',
 				cache:false,
-				controller : 'rolesController',
+				controller : 'rolesControllerAdd',
 				templateUrl : 'views/roles/roles_add.html'
 
 			})

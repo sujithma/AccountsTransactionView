@@ -2,25 +2,14 @@
 	'use strict';
 	var rolesController	=	angular.module('rolesController',[])
 		.controller('rolesController',function(rolesFact,$scope,$state,Notification,rolesService){
+			
 			rolesFact.Roles()
 		    	.then(function(e){
 		    		rolesService.setData(e.data);
 		    		$scope.data = rolesService.getData();
+		    		console.log($scope.data);
 		    	})
-		    $scope.closebox	=	function(){
-		    	$state.go('index.roles');
-		    };
-		    $scope.save	=	function(){
-		    	var $role =	{'role_name': $scope.role_name};
-		    	rolesFact.add($role)
-		    		.then(function(re){
-		    			rolesService.pushData($role);
-		    			Notification.success('Success notification');
-		    			$state.go('index.roles');
-		    		},function(){
-		    			Notification.warning('Success notification');
-		    		})	
-		    };
+		   
 		   $scope.delete = function($id){
 		   		var $id =	{'id': $id};
 				rolesFact.delet($id)
@@ -34,7 +23,24 @@
 
 
 		})
-
+		.controller('rolesControllerAdd',function($state,$stateParams,$scope,rolesService,rolesFact,Notification){
+			 $scope.closebox	=	function(){
+		    	$state.go('index.roles');
+		    };
+		    $scope.save	=	function(){
+		    	var $role =	{'name': $scope.role_name};
+		    	rolesFact.add($role)
+		    		.then(function(re){
+		    			$role.id = re.data.role;
+		    			$role.created_at = re.data.created_at.date;
+		    			rolesService.pushData($role);
+		    			Notification.success('Success notification');
+		    			$state.go('index.roles');
+		    		},function(){
+		    			Notification.warning('Success notification');
+		    		})	
+		    };
+		})
 		.controller('rolesControllerEdit',function($state,$stateParams,$scope,rolesService,rolesFact,Notification){
 			$scope.id = $stateParams.id;
 			$scope.role = rolesService.findData($scope.id);

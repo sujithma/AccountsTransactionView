@@ -6,7 +6,7 @@
 			    	.then(function(e){
 			    		userService.setData(e.data);
 			    		$scope.data = userService.getData();
-			    		console.log($scope.data);
+			    		//console.log($scope.data);
 			    		for(var $data in $scope.data){
 			    			$scope.data[$data].role_name = rolesService.findData($scope.data[$data].role_id);
 						}
@@ -39,17 +39,26 @@
 			rolesFact.Roles()
 		    	.then(function(e){
 		    		$scope.rolesData = e.data;
-					$scope.user = { role : $scope.rolesData[0].name};
+					$scope.user = { role_name : $scope.rolesData[0].name};
 		    	})
 
 		     $scope.save	=	function(user){
 		     	// if(user.name == null  || user.email == null || user.password == null || user.confirm_password == null){return false;}
 		     	userFact.add(user)
 		     		.then(function(response){
-		     			user.id = response.data.userid;
-		     			userService.pushData(user);
-		     			Notification.success('Success notification');
-		     			$state.go('index.users');
+		     			console.log(response.data);
+		     			if(response.data == 'alreday exist')
+		     			{
+		     				$scope.ext = true;
+		     				return false;
+		     			}else{
+		     				user.id = response.data.userid;
+			     			userService.pushData(user);
+			     			console.log(user);
+			     			Notification.success('Success notification');
+			     			$state.go('index.users');
+		     			}
+		     			
 
 		     		},function(){
 		     			Notification.warning('error notification');

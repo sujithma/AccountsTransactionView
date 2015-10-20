@@ -17,7 +17,7 @@
                     <div class="form-group"><label class="col-lg-2 control-label">Role</label>
                         <div class="col-lg-10">
                             <select
-                                ng-model="user.role"
+                                ng-model="user.role_id"
                                 ng-options="item.id as item.name for item in rolesData" required>
                             </select>
                         </div> 
@@ -27,6 +27,7 @@
                             <div ng-messages="addUser.email.$error" style="color:maroon" role="alert" ng-show="addUser.email.$touched">  
                                 <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                             </div>
+                            <div ng-show="ext" style="color:red">Email already taken please Try another one</div>  
                         </div> 
                     </div>
 
