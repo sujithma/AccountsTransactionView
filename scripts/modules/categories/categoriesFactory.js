@@ -9,6 +9,9 @@
 				categoriesObj.addCategories	=	function(data){
 					return $http.post(urls.BASE + 'categories/add',data)
 				};
+				categoriesObj.deleteCategory	=	function(id){
+					return $http.post(urls.BASE + 'categories/delete',{id:id})
+				};
 			return categoriesObj;	
 		}]);
 })();

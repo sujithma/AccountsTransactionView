@@ -8,6 +8,15 @@
 					$scope.data	=	categoryService.getData();
 					//console.log($scope.data);
 				})
+
+			$scope.delete = function(id){
+				categoriesFact.deleteCategory(id)
+					.then(function(success){
+						console.log(success);
+					},function(error){
+						console.log(error)
+					})
+			}
 		
 		})
 		.controller('categoriesControllerAdd',function($scope,categoriesFact,$state,categoryService){
