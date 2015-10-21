@@ -9,12 +9,15 @@
                 <form class="form-horizontal" name="addCategory">
                    <div class="form-group"><label class="col-lg-2 control-label">Name</label>
                         <div class="col-lg-10"><input type="text" name="name" placeholder="name" class="form-control" ng-model="category.name" required> 
+
                             <div ng-messages="addCategory.name.$error"  style="color:maroon" role="alert" ng-show="addCategory.name.$touched" >
                                  <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                             </div> 
+                            <div style="color:red" ng-show="exist">Category name already exist if you couldn't find the category in view, please check trash for previous deletions</div>
                         </div>
+
                     </div>
-                    <div class="form-group"  ng-if="categories"><label class="col-lg-2 control-label">Parent Id</label>
+                    <div class="form-group"  ng-if="categories"><label class="col-lg-2 control-label">Parent</label>
                         <div class="col-lg-10">
                             <select
                                 ng-model="category.parent_id"

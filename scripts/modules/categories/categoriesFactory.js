@@ -12,6 +12,13 @@
 				categoriesObj.deleteCategory	=	function(id){
 					return $http.post(urls.BASE + 'categories/delete',{id:id})
 				};
+				categoriesObj.viewCategoriesTrash	=	function(){
+					return $http.get(urls.BASE + 'categories/trash')
+				};
+				categoriesObj.deleteCategoryPermanent	=	function(id){
+					return $http.post(urls.BASE + 'categories/forceDelete')
+				};
+				
 			return categoriesObj;	
 		}]);
 })();

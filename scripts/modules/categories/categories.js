@@ -18,5 +18,13 @@
 					templateUrl	:	'views/categories/add_categories.html'
 
 				})
+				.state('index.categories.trash',{
+					url	:	'/trash',
+					cashe : false,
+					controller	:	'categoriesControllerTrash',
+					templateUrl	:	'views/categories/trash_categories.html'
+
+				})
+				
 		})
 })();
