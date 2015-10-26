@@ -8,9 +8,9 @@
                 <div ibox-tools></div>
             </div>
             
-            <div class="ibox-content">
+            <div class="ibox-content" ng-if="data != ''">
 
-                <table class="table">
+                <table class="table" >
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -26,12 +26,15 @@
                         <td>{{ category.parent_id }}</td>
                         <td>{{ category.transaction_type == 1 ? 'Credit' : 'Debit' }}</td>
 
-                        <td><a ui-sref="index.categories.edit({id:category.id})"> <i class="glyphicon glyphicon-edit"></i></a>
+                        <td><a ng-click="restore(category.id)"> <i class="glyphicon glyphicon-edit"></i></a>
                             <a ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
                     </tr>
                     </tbody>
                 </table>
 
+            </div>
+            <div class="ibox-content" ng-if="data == ''">
+                Nothing found
             </div>
         </div>
     </div>

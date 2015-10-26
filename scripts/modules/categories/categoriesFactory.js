@@ -16,8 +16,12 @@
 					return $http.get(urls.BASE + 'categories/trash')
 				};
 				categoriesObj.deleteCategoryPermanent	=	function(id){
-					return $http.post(urls.BASE + 'categories/forceDelete')
+					return $http.post(urls.BASE + 'categories/forceDelete',{id:id})
 				};
+				categoriesObj.categoryRestore	=	function(id){
+					return $http.post(urls.BASE + 'categories/restore',{id:id})
+				};
+				
 				
 			return categoriesObj;	
 		}]);

@@ -65,7 +65,7 @@
 				.then(function(responseData){
 					categoryService.setData(responseData.data)
 					$scope.data	=	categoryService.getData();
-					//console.log($scope.data);
+					console.log($scope.data);
 				})
 
 			$scope.delete = function(id){
@@ -75,6 +75,22 @@
 						.then(function(success){
 							Notification.success('Success notification');
 				    		categoryService.spliceData(id,1);
+				    		
+						},function(error){
+							Notification.warning({message: 'Errorr', title: 'Error Occured'});
+						})
+					}else{
+						return false;
+					}
+			}
+			$scope.restore = function(id){
+				var conf = confirm(' Are You sure to Restore the Category');
+				if(conf == true) {
+					categoriesFact.categoryRestore(id)
+						.then(function(success){
+							Notification.success('Success notification');
+				    		categoryService.spliceData(id,1);
+				    		
 						},function(error){
 							Notification.warning({message: 'Errorr', title: 'Error Occured'});
 						})
