@@ -8,10 +8,19 @@
 			    };
 			this.getData = function(){
 				return categoryData;
-			}    
+			} 
+			this.parentCategory = function(){
+				var parentData = [];
+				for(var i = 0, len = categoryData.length; i < len; i++) {
+				    if (categoryData[i].parent_id == 0) {
+				        parentData.push(categoryData[i]);
+				    }
+				}
+				return parentData;
+			}   
 			this.pushData = function(data){
 				categoryData.push(data);
-				console.log(categoryData.length);
+				console.log("push"+data);
 				return categoryData;
 			}
 			this.spliceData = function(index,count){

@@ -6,21 +6,21 @@
 			$stateProvider
 				.state('index.categories',{
 					url	:	'/categories',
-					cashe : false,
+					cache : false,
 					controller	:	'categoriesController',
 					templateUrl	:	'views/categories/categories.html'
 
 				})
 				.state('index.categories.add',{
 					url	:	'/add',
-					cashe : false,
+					cache : false,
 					controller	:	'categoriesControllerAdd',
 					templateUrl	:	'views/categories/add_categories.html'
 
 				})
 				.state('index.categories.trash',{
 					url	:	'/trash',
-					cashe : false,
+					cache : false,
 					controller	:	'categoriesControllerTrash',
 					templateUrl	:	'views/categories/trash_categories.html'
 

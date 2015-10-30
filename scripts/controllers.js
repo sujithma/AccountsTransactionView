@@ -6,7 +6,8 @@
 		'navigation',
 		'roles',
 		'user',
-		'categories'
+		'categories',
+		'transactions'
 		])
 	.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 			$httpProvider.defaults.withCredentials = true;

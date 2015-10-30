@@ -3,7 +3,8 @@
 	var services=angular.module('services',[
 		'rolesService',
 		'userService',
-		'categoryService'
+		'categoryService',
+		'transactionsService',
 		])
 	
 	

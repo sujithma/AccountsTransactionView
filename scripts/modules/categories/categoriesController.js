@@ -30,16 +30,14 @@
 				.then(function(responseData){
 					categoryService.setData(responseData.data)
 					if(responseData.data.length != 0){
-						$scope.categories	=	categoryService.getData();
+						$scope.categories	=	categoryService.parentCategory();
 					}else{
 						$scope.categories = false;
 					}
-					
-					//console.log($scope.data);
 				})
 				$scope.save = function(category){
 				var $parent_id = (typeof(category.parent_id) != 'undefined') ? category.parent_id : '';
-				var $data = {name: category.name,transaction_type:category.transaction_type,parent_id : $parent_id};
+				var $data = {name: category.name,parent_id : $parent_id};
 				//console.log(category);
 				categoriesFact.addCategories($data)
 					.then(function(success){
@@ -48,7 +46,7 @@
 							$scope.exist = true;
 						}else{
 							$data.id = success.data.id;
-							$data.parent_id = success.data.parent_id == "" ? 0 : 1;
+							$data.parent_id = success.data.parent_id;
 							categoryService.pushData($data);
 							$state.go('index.categories');
 						}

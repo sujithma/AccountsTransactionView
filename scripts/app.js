@@ -9,6 +9,7 @@
 		'ngAnimate',
 	    'inspinia',
 	    'services',
+	    'ui.bootstrap',
 
 		])
 		.constant('urls', {

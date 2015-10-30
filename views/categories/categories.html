@@ -4,13 +4,20 @@
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>Categories</h5>
-
-                <div ibox-tools></div>
+                <div ibox-tools></div>                
             </div>
-            
             <div class="ibox-content">
-
-                <table class="table">
+                <div ng-repeat="category in data">      
+                    <div ng-init="accordion=category.id">
+                            
+                        <h3 class="accordion" ng-class="{active:accordion==category.id}">
+                            <a href="" ng-click="accordion=category.id">{{category.name}}</a>
+                        </h3>
+                        <p class="accordion-content ng-hide" ng-show="accordion==category.id">{{category.parent_id}}</p>
+                    </div>
+                </div>
+            </div>   
+             <!-- <table class="table">
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -30,7 +37,7 @@
                             <a ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
                     </tr>
                     </tbody>
-                </table>
+                </table> -->
 
             </div>
         </div>

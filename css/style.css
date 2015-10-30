@@ -6420,3 +6420,5 @@ body.skin-3 {
         display: none;
     }
 }
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
