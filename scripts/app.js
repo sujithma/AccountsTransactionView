@@ -10,6 +10,7 @@
 	    'inspinia',
 	    'services',
 	    'ui.bootstrap',
+	    'datePicker'
 
 		])
 		.constant('urls', {

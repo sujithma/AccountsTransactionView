@@ -13,7 +13,7 @@
 					transactionsFact.deleteTransaction(id)
 						.then(function(success){
 							Notification.success('Success notification');
-				    		categoryService.spliceData(id,1);
+				    		transactionsService.spliceData(id,1);
 						},function(error){
 							Notification.warning({message: 'Errorr', title: 'Error Occured'});
 						})
@@ -41,7 +41,8 @@
 					var $data = {title: transaction.title,
 								description : transaction.description,
 								category_id : $category_id,
-								transaction_type : transaction.transaction_type
+								transaction_type : transaction.transaction_type,
+								date:transaction.date
 							};
 					//console.log(category);
 					transactionsFact.addTransaction($data)
@@ -56,7 +57,44 @@
 					})
 				}
 		})
-		
+		.controller('transactionsControllerTrash',function($scope,transactionsFact,$state,transactionsService){
+			transactionsFact.viewTransactionTrash()
+				.then(function(responseData){
+					transactionsService.setData(responseData.data)
+					$scope.data	= transactionsService.getData();
+				})
+
+		// 	$scope.delete = function(id){
+		// 		var conf = confirm('Are You sure to Delete.The data will be permanently deleted');
+		// 		if(conf == true) {
+		// 			categoriesFact.deleteCategoryPermanent(id)
+		// 				.then(function(success){
+		// 					Notification.success('Success notification');
+		// 		    		transactionsService.spliceData(id,1);
+				    		
+		// 				},function(error){
+		// 					Notification.warning({message: 'Errorr', title: 'Error Occured'});
+		// 				})
+		// 			}else{
+		// 				return false;
+		// 			}
+		// 	}
+		// 	$scope.restore = function(id){
+		// 		var conf = confirm(' Are You sure to Restore the Category');
+		// 		if(conf == true) {
+		// 			categoriesFact.categoryRestore(id)
+		// 				.then(function(success){
+		// 					Notification.success('Success notification');
+		// 		    		transactionsService.spliceData(id,1);
+				    		
+		// 				},function(error){
+		// 					Notification.warning({message: 'Errorr', title: 'Error Occured'});
+		// 				})
+		// 			}else{
+		// 				return false;
+		// 		}
+		// 	}
+		})	
 
 
 })();

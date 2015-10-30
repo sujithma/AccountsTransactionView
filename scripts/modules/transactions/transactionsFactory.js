@@ -10,18 +10,18 @@
 				transactionsObj.addTransaction	=	function(data){
 					return $http.post(urls.BASE + 'transactions/add',data)
 				};
-				// transactionsObj.deleteTransaction	=	function(id){
-				// 	return $http.post(urls.BASE + 'transactions/delete',{id:id})
-				// };
-				// transactionsObj.viewCategoriesTrash	=	function(){
-				// 	return $http.get(urls.BASE + 'categories/trash')
-				// };
-				// transactionsObj.deleteCategoryPermanent	=	function(id){	
-				// 	return $http.post(urls.BASE + 'categories/forceDelete',{id:id})
-				// };
-				// transactionsObj.categoryRestore	=	function(id){
-				// 	return $http.post(urls.BASE + 'categories/restore',{id:id})
-				// };
+				transactionsObj.deleteTransaction	=	function(id){
+					return $http.post(urls.BASE + 'transactions/forceDelete',{id:id})
+				};
+				transactionsObj.viewTransactionTrash	=	function(){
+					return $http.get(urls.BASE + 'transactions/trash')
+				};
+				transactionsObj.deleteTransactionPermanent = function(id){	
+					return $http.post(urls.BASE + 'transactions/delete',{id:id})
+				};
+				transactionsObj.transactionRestore = function(id){
+					return $http.post(urls.BASE + 'transactions/restore',{id:id})
+				};
 				
 				
 			return transactionsObj;	
