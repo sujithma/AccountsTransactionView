@@ -17,6 +17,7 @@
                     <div class="form-group"><label class="col-lg-2 control-label">Role</label>
                         <div class="col-lg-10">
                             <select
+                                class="form-control"
                                 ng-model="user.role_id"
                                 ng-options="item.id as item.name for item in rolesData" required>
                             </select>

@@ -64,36 +64,36 @@
 					$scope.data	= transactionsService.getData();
 				})
 
-		// 	$scope.delete = function(id){
-		// 		var conf = confirm('Are You sure to Delete.The data will be permanently deleted');
-		// 		if(conf == true) {
-		// 			categoriesFact.deleteCategoryPermanent(id)
-		// 				.then(function(success){
-		// 					Notification.success('Success notification');
-		// 		    		transactionsService.spliceData(id,1);
+			$scope.delete = function(id){
+				var conf = confirm('Are You sure to Delete.The data will be permanently deleted');
+				if(conf == true) {
+					transactionsFact.deleteTransactionPermanent(id)
+						.then(function(success){
+							Notification.success('Success notification');
+				    		transactionsService.spliceData(id,1);
 				    		
-		// 				},function(error){
-		// 					Notification.warning({message: 'Errorr', title: 'Error Occured'});
-		// 				})
-		// 			}else{
-		// 				return false;
-		// 			}
-		// 	}
-		// 	$scope.restore = function(id){
-		// 		var conf = confirm(' Are You sure to Restore the Category');
-		// 		if(conf == true) {
-		// 			categoriesFact.categoryRestore(id)
-		// 				.then(function(success){
-		// 					Notification.success('Success notification');
-		// 		    		transactionsService.spliceData(id,1);
+						},function(error){
+							Notification.warning({message: 'Errorr', title: 'Error Occured'});
+						})
+					}else{
+						return false;
+					}
+			}
+			$scope.restore = function(id){
+				var conf = confirm(' Are You sure to Restore the Transaction');
+				if(conf == true) {
+					transactionsFact.transactionRestore(id)
+						.then(function(success){
+							Notification.success('Success notification');
+				    		transactionsService.spliceData(id,1);
 				    		
-		// 				},function(error){
-		// 					Notification.warning({message: 'Errorr', title: 'Error Occured'});
-		// 				})
-		// 			}else{
-		// 				return false;
-		// 		}
-		// 	}
+						},function(error){
+							Notification.warning({message: 'Errorr', title: 'Error Occured'});
+						})
+					}else{
+						return false;
+				}
+			}
 		})	
 
 

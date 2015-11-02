@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group"  ng-if="categories"><label class="col-lg-2 control-label">Category</label>
                     <div class="col-lg-10">
-                        <select
+                        <select class="form-control" 
                             ng-model="transaction.category_id"
                             ng-options="item.id as item.name for item in categories" required>
                         </select>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group"><label class="col-lg-2 control-label">Transaction Type</label>
                     <div class="col-lg-10">
-                        <select name="transaction_type" ng-model="transaction.transaction_type">
+                        <select class="form-control" name="transaction_type" ng-model="transaction.transaction_type">
                             <option value="credit">Credit</option>
                             <option value="debit">Debit</option>
                         </select>
