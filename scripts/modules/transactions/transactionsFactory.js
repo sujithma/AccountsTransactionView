@@ -11,13 +11,13 @@
 					return $http.post(urls.BASE + 'transactions/add',data)
 				};
 				transactionsObj.deleteTransaction	=	function(id){
-					return $http.post(urls.BASE + 'transactions/forceDelete',{id:id})
+					return $http.post(urls.BASE + 'transactions/delete',{id:id})
 				};
 				transactionsObj.viewTransactionTrash	=	function(){
 					return $http.get(urls.BASE + 'transactions/trash')
 				};
 				transactionsObj.deleteTransactionPermanent = function(id){	
-					return $http.post(urls.BASE + 'transactions/delete',{id:id})
+					return $http.post(urls.BASE + 'transactions/forceDelete',{id:id})
 				};
 				transactionsObj.transactionRestore = function(id){
 					return $http.post(urls.BASE + 'transactions/restore',{id:id})

@@ -57,7 +57,7 @@
 					})
 				}
 		})
-		.controller('transactionsControllerTrash',function($scope,transactionsFact,$state,transactionsService){
+		.controller('transactionsControllerTrash',function($scope,Notification,transactionsFact,$state,transactionsService){
 			transactionsFact.viewTransactionTrash()
 				.then(function(responseData){
 					transactionsService.setData(responseData.data)
