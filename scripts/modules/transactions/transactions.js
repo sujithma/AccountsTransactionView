@@ -25,6 +25,14 @@
 					templateUrl	:	'views/transactions/trash_transactions.html'
 
 				})
+				.state('index.transactions.edit',{
+					url	:	'/edit/:id',
+					cache : false,
+					controller	:	'transactionControllerEdit',
+					templateUrl	:	'views/transactions/edit_transaction.html'
+
+				})
+				
 				
 		})
 })();

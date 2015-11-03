@@ -4,9 +4,11 @@
 		.controller('transactionsController',function($scope,transactionsFact,$state,Notification,transactionsService){
 			transactionsFact.viewTransactions()
 				.then(function(responseData){
-					transactionsService.setData(responseData.data)
+					transactionsService.setData(responseData.data);
 					$scope.data	=	transactionsService.getData();
+					console.log($scope.data);
 				})
+
 				$scope.delete = function(id){
 				var conf = confirm('Are You sure to Delete');
 				if(conf == true) {
@@ -21,6 +23,7 @@
 						return false;
 					}
 			}
+
 			
 		})
 
@@ -56,6 +59,33 @@
 
 					})
 				}
+		})
+.controller('transactionControllerEdit',function($scope,transactionsFact,$state,transactionsService,$stateParams){
+			$scope.id = $stateParams.id;
+			
+					$scope.data	= transactionsService.findData($scope.id);
+					console.log($scope.data);
+				// 	})
+					// $scope.save = function(transaction){
+					// var $category_id = (typeof(transaction.category_id) != 'undefined') ? transaction.category_id : '';
+					// var $data = {title: transaction.title,
+					// 			description : transaction.description,
+					// 			category_id : $category_id,
+					// 			transaction_type : transaction.transaction_type,
+					// 			date:transaction.date
+					// 		};
+					// //console.log(category);
+					// transactionsFact.addTransaction($data)
+					// .then(function(success){
+					// 	console.log(success.data.status)					
+					// 	transactionsService.pushData($data);
+					// 	$state.go('index.transactions');
+						
+						
+					// },function(error){
+
+					// })
+				// }
 		})
 		.controller('transactionsControllerTrash',function($scope,Notification,transactionsFact,$state,transactionsService){
 			transactionsFact.viewTransactionTrash()

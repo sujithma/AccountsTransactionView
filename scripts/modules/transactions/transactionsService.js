@@ -30,12 +30,16 @@
 
 				for(var i = 0, len = transactionsData.length; i < len; i++) {
 				    if (transactionsData[i].id == id) {
-				        $data = transactionsData[i].name
+				         $data = {
+				        	'title' :transactionsData[i].title,
+				        	'description':transactionsData[i].description,
+				        	'transaction_type':transactionsData[i].transaction_type,
+				        	'transaction_date':transactionsData[i].transaction_date};
 				        
 				        break;
 				    }
 				}
-				console.log($data);
+				//console.log($data);
 				return $data;
 
 			 }

@@ -31,7 +31,7 @@
                         <td>{{ transaction.transaction_type }}</td>
                         <td>{{ transaction.transaction_date }}</td>
                         
-                        <td><!-- <a ui-sref="index.categories.edit({id:transaction.id})"> <i class="glyphicon glyphicon-edit"></i></a> -->
+                        <td><a ui-sref="index.transactions.edit({id:transaction.id})"> <i class="glyphicon glyphicon-edit"></i></a>
                             <a ng-click="delete(transaction.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
                     </tr>
                     </tbody>
