@@ -11,16 +11,18 @@
 		    	})
 		   
 		   $scope.delete = function($id){
-		   		var $id =	{'id': $id};
-				rolesFact.delet($id)
-			    	.then(function(e){
-			    		  Notification.success('Success notification');
-			    		  rolesService.spliceData($id,1);
-			    	},function(){
-			    		    Notification.warning({message: 'Errorr', title: 'Error Occured'});
-			    	})	
-			};   
-
+		   	var conf = confirm('Are You sure to Delete');
+				if(conf == true) {
+			   		var $id =	{'id': $id};
+					rolesFact.delet($id)
+				    	.then(function(e){
+				    		  Notification.success('Success notification');
+				    		  rolesService.spliceData($id,1);
+				    	},function(){
+				    		    Notification.warning({message: 'Errorr', title: 'Error Occured'});
+				    	})	
+					};   
+				}
 
 		})
 		.controller('rolesControllerAdd',function($state,$stateParams,$scope,rolesService,rolesFact,Notification){
@@ -60,13 +62,48 @@
 					},function(){
 
 					})
-				}
-				
-
-			};
-			
-
-
+				}				
+			};			
 		})
+
+
+		.controller('rolesControllerTrash',function($scope,rolesFact,$state,rolesService,Notification){
+			rolesFact.viewRoleTrash()
+				.then(function(responseData){
+					rolesService.setData(responseData.data)
+					$scope.data	= rolesService.getData();
+				})
+
+			$scope.delete = function(id){
+				var conf = confirm('Are You sure to Delete.The data will be permanently deleted');
+				if(conf == true) {
+					rolesFact.deleteRolePermanent(id)
+						.then(function(success){
+							Notification.success('Success notification');
+							console.log(success);
+				    		rolesService.spliceData(id,1);
+				    		
+						},function(error){
+							Notification.warning({message: 'Errorr', title: 'Error Occured'});
+						})
+					}else{
+						return false;
+					}
+			}
+			$scope.restore = function(id){
+				var conf = confirm(' Are You sure to Restore the Role');
+				if(conf == true) {
+					rolesFact.roleRestore(id)
+						.then(function(success){
+							Notification.success('Success notification');
+				    		rolesService.spliceData(id,1);	
+						},function(error){
+							Notification.warning({message: 'Errorr', title: 'Error Occured'});
+						})
+					}else{
+						return false;
+				}
+			}
+		})	
 		
 })();

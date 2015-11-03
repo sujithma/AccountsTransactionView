@@ -25,5 +25,13 @@
 	          	controller:'rolesControllerEdit',
 	            templateUrl : 'views/roles/roles_edit.html'
 	        })
+	        .state('index.roles.trash',{
+					url	:	'/trash',
+					cache : false,
+					controller	:	'rolesControllerTrash',
+					templateUrl	:	'views/roles/trash_roles.html'
+
+				})
+				.s
 	})
 })();
