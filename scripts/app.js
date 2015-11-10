@@ -7,7 +7,7 @@
 		'ngMessages',
 		'ui-notification',
 		'ngAnimate',
-	    'inspinia',
+	   
 	    'services',
 	    'ui.bootstrap',
 	    'datePicker'

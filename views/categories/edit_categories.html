@@ -8,7 +8,7 @@
             <div class="ibox-content">
                 <form class="form-horizontal" name="addCategory">
                    <div class="form-group"><label class="col-lg-2 control-label">Name</label>
-                        <div class="col-lg-10"><input type="text" name="name" placeholder="name" class="form-control" ng-model="category.name" required> 
+                        <div class="col-lg-10"><input type="text" name="name" placeholder="{{CategoryDetails.name}}" class="form-control" ng-model="category.name" required> 
 
                             <div ng-messages="addCategory.name.$error"  style="color:maroon" role="alert" ng-show="addCategory.name.$touched" >
                                  <ng-messages-include src="views/common/messages.html"></ng-messages-include>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-sm btn-white" type="submit" ng-click="save(category,FomCategory)">Save</button>
+                            <button class="btn btn-sm btn-white" type="submit" ng-click="save(category)">Save</button>
                         </div>
                     </div>
                 </form>

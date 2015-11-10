@@ -30,10 +30,7 @@
 			 	console.log(id);
 				for(var i = 0, len = usersData.length; i < len; i++) {
 				    if (usersData[i].id == id) {
-				        $data = {
-				        	'id' :usersData[i].id,
-				        	'name':usersData[i].name,
-				        	'role_id':usersData[i].role_id};
+				        $data = usersData[i]
 				        
 				        break;
 				    }
@@ -42,6 +39,14 @@
 				return $data;
 
 			 }
+			 this.changeStatus = function(id){
+			 	
+			 	id = id.id;
+			 	var $data = this.findData(id);
+				$data.status = $data.status==0 ? 1 : 0;
+				return $data;
+			 }
+
 			//  this.updateData = function(role){
 
 			//  	for(var i = 0, len = usersData.length; i < len; i++) {

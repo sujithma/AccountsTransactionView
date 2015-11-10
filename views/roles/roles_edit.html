@@ -12,7 +12,7 @@
                     <div class="form-group"><label class="col-lg-2 control-label">Role</label>
 
                         <div class="col-lg-10" ng-init="role_name = role.name">
-                            <input type="text" name="role_name" class="form-control" placeholder="{{role}}" ng-model="role_name"  required> 
+                            <input type="text" name="role_name" class="form-control" placeholder="{{role}}" ng-model="role.name"  required> 
                             <div ng-messages="editRole.role_name.$error" style="color:maroon" role="alert" ng-show="editRole.role_name.$touched">
                                 <div ng-message="required">Please Enter Role Name</div>    
                                 </div>

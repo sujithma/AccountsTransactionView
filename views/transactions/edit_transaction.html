@@ -7,7 +7,7 @@
         <div class="ibox-content">
             <form class="form-horizontal" name="addTransaction">
                <div class="form-group"><label class="col-lg-2 control-label">Title</label>
-                    <div class="col-lg-10"><input type="text" name="title" placeholder="{{data.title}}" class="form-control" ng-model="transaction.title" required> 
+                    <div class="col-lg-10"><input type="text" name="title" value="{{data.title}}" class="form-control" ng-model="transaction.title" required> 
                         <div ng-messages="addTransaction.title.$error"  style="color:maroon" role="alert" ng-show="addTransaction.title.$touched" >
                              <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                         </div> 

@@ -25,6 +25,13 @@
 					templateUrl	:	'views/categories/trash_categories.html'
 
 				})
+				.state('index.categories.edit',{
+					url	:	'/edit/:id',
+					cache : false,
+					controller	:	'categoriesControllerEdit',
+					templateUrl	:	'views/categories/edit_categories.html'
+
+				})
 				
 		})
 })();

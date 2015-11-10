@@ -12,12 +12,19 @@
 			this.parentCategory = function(){
 				var parentData = [];
 				for(var i = 0, len = categoryData.length; i < len; i++) {
+					var subCategories = [];
 				    if (categoryData[i].parent_id == 0) {
+				    	for(var j = 0, len = categoryData.length; j < len; j++) {
+						    if (categoryData[j].parent_id == categoryData[i].id){				    	
+						        subCategories.push(categoryData[j]);
+						    }
+						}
+				    	categoryData[i].subCategories = subCategories;				    	
 				        parentData.push(categoryData[i]);
 				    }
 				}
 				return parentData;
-			}   
+			}  
 			this.pushData = function(data){
 				categoryData.push(data);
 				console.log("push"+data);
@@ -39,7 +46,7 @@
 
 				for(var i = 0, len = categoryData.length; i < len; i++) {
 				    if (categoryData[i].id == id) {
-				        $data = categoryData[i].name
+				        $data = categoryData[i];
 				        
 				        break;
 				    }

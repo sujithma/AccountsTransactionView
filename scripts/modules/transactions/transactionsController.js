@@ -62,7 +62,6 @@
 		})
 .controller('transactionControllerEdit',function($scope,transactionsFact,$state,transactionsService,$stateParams){
 			$scope.id = $stateParams.id;
-			
 					$scope.data	= transactionsService.findData($scope.id);
 					console.log($scope.data);
 				// 	})

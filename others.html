@@ -1,0 +1,58 @@
+<div class="wrapper wrapper-content animated fadeInRight" >
+<div class="row" ui-view>
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Categories</h5>
+                <div ibox-tools></div>                
+            </div>
+            <div class="ibox-content">
+           
+              {{groups}}
+              <uib-accordion close-others="oneAtATime">
+                <uib-accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                  This content is straight in the template.
+                </uib-accordion-group>
+                <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+                  {{group.content}}
+                </uib-accordion-group>
+                
+                <uib-accordion-group heading="Custom template" template-url="group-template.html">
+                  Hello
+                </uib-accordion-group>
+                <uib-accordion-group heading="Delete account" panel-class="panel-danger">
+                  <p>Please, to delete your account, click the button below</p>
+                  <button class="btn btn-danger">Delete</button>
+                </uib-accordion-group>
+               
+              </uib-accordion>
+            </div>   
+             <!-- <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Category Title</th>
+                        <th>Parent Id</th>
+                        <th>Transaction Type</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="category in data">
+                        <td>{{ category.id }}</td>
+                        <td>{{ category.name }}</td>
+                        <td>{{ category.parent_id }}</td>
+                        <td>{{ category.transaction_type == 1 ? 'Credit' : 'Debit' }}</td>
+
+                        <td><a ui-sref="index.categories.edit({id:category.id})"> <i class="glyphicon glyphicon-edit"></i></a>
+                            <a ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
+                    </tr>
+                    </tbody>
+                </table> -->
+
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+</div>

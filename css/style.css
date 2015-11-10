@@ -6422,3 +6422,7 @@ body.skin-3 {
 }
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.minuspad {
+    margin-top: -9px;
+}

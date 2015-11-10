@@ -4,8 +4,13 @@
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>Transactions</h5>
+                <form name="SearchTransaction">
+                    <input type="datetime" date-time ng-model="startDate" format="yyyy-MM-dd" view="date" min-view="date" auto-close="true" placeholder="Y-M-D" class="col-md-2 col-sm-5" name="date">
+                    <input type="datetime" date-time ng-model="endDate" format="yyyy-MM-dd" view="date" min-view="date" auto-close="true" placeholder="Y-M-D" class="col-md-2 col-sm-5" name="date">
+                    <div ibox-tools></div>
+                </form>
 
-                <div ibox-tools></div>
+                
             </div>
             
             <div class="ibox-content">

@@ -15,18 +15,17 @@
                     <tr>
                         <th>Id</th>
                         <th>Category Title</th>
-                        <th>Parent Id</th>
-                        <th>Transaction Type</th>
+                        <th>Parent Category</th>
+                        <th><th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="category in data">
                         <td>{{ category.id }}</td>
                         <td>{{ category.name }}</td>
-                        <td>{{ category.parent_id }}</td>
-                        <td>{{ category.transaction_type == 1 ? 'Credit' : 'Debit' }}</td>
+                        <td>{{ category.subcategories.name }}</td>
 
-                        <td><a ng-click="restore(category.id)"> <i class="glyphicon glyphicon-edit"></i></a>
+                        <td><a ng-click="restore(category.id)"> <i class="glyphicon glyphicon-open"></i></a>
                             <a ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
                     </tr>
                     </tbody>

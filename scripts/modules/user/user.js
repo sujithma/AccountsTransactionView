@@ -9,22 +9,27 @@
 	          		url:'/users',
 	          		controller:'userController',
 	                templateUrl: 'views/users/users.html'
-	          })
+	          	})
        			.state('index.users.edit',{
 	          		url:'/edit/:id',
 	          		controller:'userControllerEdit',
-	                template: '<p>Edit id is {{id}}</p>'
-	          })
+	                templateUrl:'views/users/user_edit.html'
+	          	})
        			.state('index.users.add',{
 	          		url:'/add',
 	          		controller:'userControllerAdd',
 	                templateUrl: 'views/users/users_add.html'
-	          })
+	          	})
        			.state('index.users.settings',{
 	          		url:'/settings/:id',
 	          		controller:'userControllerSettings',
 	                templateUrl: 'views/users/users_settings.html'
-	          })
+	          	})
+       			.state('index.users.trash',{
+	          		url:'/trash',
+	          		controller:'userControllerTrash',
+	                templateUrl: 'views/users/users_trash.html'
+	          	})
 	       		
 	       		
 	       		

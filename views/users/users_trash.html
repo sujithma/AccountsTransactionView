@@ -13,7 +13,6 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>User Id</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Account Type</th>
@@ -22,14 +21,13 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="user in data" class="wrapper wrapper-content animated fadeIn" >
-                        <td>{{ user.id }}</td>
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.role_name }}</td>
+                        <td>{{ user.roles.name }}</td>
                         <td>
-                            <!-- <a ui-sref="index.users.edit({id:user.id})"> <i class="glyphicon glyphicon-edit"></i></a> -->
+                            <a ng-click="restore(user.id)"><i class="glyphicon glyphicon-open"></i></a>
                             <a ng-click="delete(user.id)"><i class="glyphicon glyphicon-trash"></i></a>
-                            <a ui-sref="restore(id:user.id)"><i class="glyphicon glyphicon-cog"></i></a>
+                            
                         </td>
                     </tr>
                     </tbody>
