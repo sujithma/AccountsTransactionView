@@ -3,8 +3,10 @@
 	var transactionsService	=	angular.module('transactionsService',[])
 		.service('transactionsService',function(){
 			var transactionsData	=	{};
-			this.setData = function(data) {
+			var searchData	=	[];
+			this.setData = function(data) {				
 			      transactionsData = data;
+			      searchData = data;
 			    };
 			this.getData = function(){
 				return transactionsData;
@@ -16,18 +18,18 @@
 			}
 			this.spliceData = function(index,count){
 				var $id = -1;
+				console.log(index);
 				for(var i = 0, len = transactionsData.length; i < len; i++) {
-				    if (transactionsData[i].id === index.id) {
+				    if (transactionsData[i].id === index) {
 				        $id = i;
 				        break;
 				    }
 				}
 				transactionsData.splice($id,count);
 			
-			 }
-			 this.findData = function(id){
-			 	var $data = {};
-
+			}
+			this.findData = function(id){
+				var $data = {};
 				for(var i = 0, len = transactionsData.length; i < len; i++) {
 				    if (transactionsData[i].id == id) {
 				         $data = {
@@ -39,13 +41,46 @@
 				        break;
 				    }
 				}
-				//console.log($data);
 				return $data;
 
-			 }
-			 this.updateData = function(role){
+			}
+			var searchType = [];
+			var searchUser = [];
 
-			 	for(var i = 0, len = transactionsData.length; i < len; i++) {
+			this.getDataByType = function(type){
+				var checkData = searchUser.length > 0 ? searchUser : transactionsData;				
+				var data = [];
+				for(var i = 0, len = checkData.length; i < len; i++) {
+					if (type == 'all') {
+						searchType = checkData;
+						return checkData;
+					}
+				    else if (checkData[i].transaction_type == type) {
+				        data.push(checkData[i]);
+				    }
+				}
+				searchType = data;
+				return data;
+
+			}
+			this.getDataByUser = function(userId){
+				var checkData = searchType.length > 0 ? searchType : transactionsData;
+				var data = [];
+				for(var i = 0, len = checkData.length; i < len; i++) {
+					if (userId == 0) {
+						searchUser = checkData;
+						return checkData;
+					}
+				    else if (checkData[i].user_id == userId) {
+				        data.push(checkData[i]);
+				    }
+				}
+				searchUser = data;
+				return data;
+
+			}
+			this.updateData = function(role){
+				for(var i = 0, len = transactionsData.length; i < len; i++) {
 				    if (transactionsData[i].id == role.id) {
 				        	transactionsData[i].name = role.role_name;
 				        break;

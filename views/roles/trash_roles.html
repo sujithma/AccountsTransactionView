@@ -11,16 +11,12 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Role Id</th>
                         <th>Role Name</th>
-                        <th>Created_At</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="role in data">
-                        <td>{{ role.id }}</td>
                         <td>{{ role.name }}</td>
-                        <td>{{ role.created_at }}</td>
                         <td>
                             <a ng-click="restore(role.id)"> <i class="glyphicon glyphicon-open"></i></a> 
                             <a ng-click="delete(role.id)"><i class="glyphicon glyphicon-trash"></i></a>

@@ -1,13 +1,15 @@
 (function(){
 	'use strict';
 	var categoriesController	=	angular.module('categoriesController',[])
-		.controller('categoriesController',function($scope,categoriesFact,$state,Notification,categoryService){
+		.controller('categoriesController',function($scope,categoriesFact,$state,Notification,categoryService,authService){
 			categoriesFact.viewCategories()
 				.then(function(responseData){
 					categoryService.setData(responseData.data)
 					$scope.parentCategories	= categoryService.parentCategory();
-					console.log($scope.data);
+					console.log(responseData.data);
 				})
+			var authStatus = authService.authenticate();
+			$scope.admin = authStatus == 'admin' ? true : false;
 
 			// $scope.subCategories = function(id) {
 			// 	$scope.subCategories = categoryService.subCategories(id);
@@ -19,9 +21,11 @@
 				var conf = confirm('Are You sure to Delete');
 				if(conf == true) {
 					categoriesFact.deleteCategory(id)
-						.then(function(success){
-							Notification.success('Success notification');
+						.then(function(success){							
 				    		categoryService.spliceData(id,1);
+				    		$scope.parentCategories	= categoryService.parentCategory();
+				    		Notification.success('Success notification');
+				    		console.log($scope.parentCategories);			    		
 						},function(error){
 							Notification.warning({message: 'Errorr', title: 'Error Occured'});
 						})
@@ -54,7 +58,7 @@
 			  // };
 		
 		})
-		.controller('categoriesControllerAdd',function($scope,categoriesFact,$state,categoryService){
+		.controller('categoriesControllerAdd',function($scope,categoriesFact,$state,categoryService,Notification){
 				$scope.FomCategory = {};
 				categoriesFact.viewCategories()
 				.then(function(responseData){
@@ -79,8 +83,9 @@
 							$scope.exist = true;
 						}else{
 							$data.id = success.data.id;
-							$data.parent_id = success.data.parent_id;
+							console.log($data);
 							categoryService.pushData($data);
+							Notification.success('Success notification');
 							$state.go('index.categories');
 						}
 						
@@ -91,23 +96,37 @@
 
 			}
 		})
-		.controller('categoriesControllerEdit',function($scope,categoriesFact,$state,categoryService,$stateParams){
+		.controller('categoriesControllerEdit',function($scope,categoriesFact,$state,categoryService,$stateParams,Notification){
 			$scope.id = $stateParams.id;
 			$scope.CategoryDetails	= categoryService.findData($scope.id);
 			$scope.FomCategory = {};
 			categoriesFact.viewCategories()
-			.then(function(responseData){
-				categoryService.setData(responseData.data)
-				if(responseData.data.length != 0){
-					$scope.categories	=	categoryService.parentCategory();
-				}else{
-					$scope.categories = false;
-				}
-				console.log($scope.CategoryDetails.parent_id);
-				$scope.FomCategory.parent_id = $scope.CategoryDetails.parent_id;
-			})	
-				// 	})
-					// $scope.save = function(transaction){
+				.then(function(responseData){
+					categoryService.setData(responseData.data)
+					if(responseData.data.length != 0){
+						$scope.categories	=	categoryService.parentCategory();
+					}else{
+						$scope.categories = false;
+					}
+					$scope.FomCategory.parent_id = $scope.CategoryDetails.parent_id;
+				})	
+				
+					$scope.save = function(data,parentId){
+						data.parent_id = parentId;
+						categoriesFact.edit(data)
+							.then(function(success){
+								if(success.data.status == 409){
+									$scope.exist = true;
+								}else{
+									Notification.success('Success notification');
+									$state.go('index.categories');
+								}
+								
+							},function(error){
+								Notification.warning('error notification');
+							});
+					}
+					
 					// var $category_id = (typeof(transaction.category_id) != 'undefined') ? transaction.category_id : '';
 					// var $data = {title: transaction.title,
 					// 			description : transaction.description,

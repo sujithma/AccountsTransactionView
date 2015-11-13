@@ -6,11 +6,11 @@
 		'factories',
 		'ngMessages',
 		'ui-notification',
-		'ngAnimate',
-	   
+		'ngAnimate',	  
 	    'services',
 	    'ui.bootstrap',
-	    'datePicker'
+	    'datePicker',
+	    // 'ngPDFViewer'
 
 		])
 		.constant('urls', {

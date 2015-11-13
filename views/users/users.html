@@ -4,41 +4,38 @@
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>Users</h5>                
-                    <a class = 'pull-right btn btn-primary minuspad' ui-sref="index.users.add">Add</a>
-                </div>
-            </div>
-            
-            <div class="ibox-content">
-
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Account Type</th>
-                        <th></th>
-                       
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="user in data" class="wrapper wrapper-content animated fadeIn" >
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.roles.name }}</td>
-                        <td>
-                            <a ng-if="user.status==0" ng-click="changeStatus(user.id,user.status)"> <i class="glyphicon glyphicon-user"></i></a>
-                            <a ng-if="user.status==1" ng-click="changeStatus(user.id,user.status)"> <i class="glyphicon glyphicon-lock"></i></a>
-                            <a ui-sref="index.users.edit({id:user.id})"> <i class="glyphicon glyphicon-edit"></i></a>
-                            <a ng-click="delete(user.id)"><i class="glyphicon glyphicon-trash"></i></a>
-                            <!-- <a ui-sref="index.users.settings({id:user.id})"><i class="glyphicon glyphicon-cog"></i></a> -->
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
+                <a class = 'pull-right btn btn-primary minuspad' ui-sref="index.users.add">Add</a>
             </div>
         </div>
+        <div class="ibox-content">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Account Type</th>
+                    <th></th>
+                   
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in data" class="wrapper wrapper-content animated fadeIn" >
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles.name }}</td>
+                    <td>
+                        <a ng-if="user.status==0" ng-click="changeStatus(user.id,user.status)"> <i class="glyphicon glyphicon-user"></i></a>
+                        <a ng-if="user.status==1" ng-click="changeStatus(user.id,user.status)"> <i class="glyphicon glyphicon-lock"></i></a>
+                        <a ui-sref="index.users.edit({id:user.id})"> <i class="glyphicon glyphicon-edit"></i></a>
+                        <a ng-click="delete(user.id)"><i class="glyphicon glyphicon-trash"></i></a>
+                        <!-- <a ui-sref="index.users.settings({id:user.id})"><i class="glyphicon glyphicon-cog"></i></a> -->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
     
 
 </div>

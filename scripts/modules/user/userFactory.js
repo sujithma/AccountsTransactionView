@@ -27,6 +27,9 @@
 			userObj.changeStatus	=	function($id){
 				return $http.post(urls.BASE + 'users/status',$id)
 			};
+			userObj.allUsers	=	function(){
+				return $http.get(urls.BASE + 'users/allUsers')
+			};
 			 return userObj;
 			}]);
 })();	

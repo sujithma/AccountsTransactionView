@@ -14,7 +14,6 @@
                              </span>
                                 <span class="text-muted text-xs block"> {{ userData.email }} </span>
                                 <span class="text-muted text-xs block"><a ui-sref="profile"> Profile</a> </span>
-
                             </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -22,14 +21,14 @@
                         <li><a ui-sref="contacts">Contacts</a></li>
                         <li><a ui-sref="inbox">Mailbox</a></li>
                         <li class="divider"></li>
-                        <li><a href="../login.html">Logout</a></li>
+                        <li><a ui-sref="index.logout">Logout</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
                     AT
                 </div>
             </li>
-            <li>
+            <li ng-show = 'admin'>
                 <a ui-sref="index.users"><i class="fa fa-users"></i> <span class="nav-label">{{ 'Users'  }}</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active"><a ui-sref="index.users">{{ 'View'  }} </a></li>
@@ -37,20 +36,20 @@
                     <li ui-sref-active="active"><a ui-sref="index.users.trash">{{ 'Trash'  }}</a></li>
                 </ul>
             </li>
-            <li>
+            <!-- <li>
                 <a ui-sref="index.roles"><i class="fa fa-cog fa-fw"></i><span class="nav-label">{{ 'Roles'  }}</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active"><a ui-sref="index.roles">{{ 'View'  }} </a></li>
-                    <!-- <li ui-sref-active="active"><a ui-sref="index.roles.add">{{ 'Add'  }}</a></li> -->
+                    <!-- <li ui-sref-active="active"><a ui-sref="index.roles.add">{{ 'Add'  }}</a></li>
                     <li ui-sref-active="active"><a ui-sref="index.roles.trash">{{ 'Trash'  }}</a></li>
                 </ul>
-            </li>
+            </li> -->
             <li>
                 <a ui-sref="index.categories"><i class="fa fa-database"></i> <span class="nav-label">{{ 'Categories'  }}</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active"><a ui-sref="index.categories">{{ 'View'  }}</a></li>
                     <!-- <li ui-sref-active="active"><a ui-sref="index.categories.add">{{ 'Add'  }}</a></li> -->
-                    <li ui-sref-active="active"><a ui-sref="index.categories.trash">{{ 'Trash'  }}</a></li>
+                    <li ng-show = 'admin' ui-sref-active="active"><a ui-sref="index.categories.trash">{{ 'Trash'  }}</a></li>
                     
                 </ul>
             </li>
@@ -58,7 +57,7 @@
                 <a ui-sref="index.transactions"><i class="fa fa-credit-card"></i> <span class="nav-label">{{ 'Transactios'  }}</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active"><a ui-sref="index.transactions">{{ 'View'  }}</a></li>
-                    <li ui-sref-active="active"><a ui-sref="index.transactions.add">{{ 'Add'  }}</a></li>
+                    <!-- <li ui-sref-active="active"><a ui-sref="index.transactions.add">{{ 'Add'  }}</a></li> -->
                     <li ui-sref-active="active"><a ui-sref="index.transactions.trash">{{ 'Trash'  }}</a></li>
                     
                 </ul>

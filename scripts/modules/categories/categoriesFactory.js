@@ -21,6 +21,9 @@
 				categoriesObj.categoryRestore	=	function(id){
 					return $http.post(urls.BASE + 'categories/restore',{id:id})
 				};
+				categoriesObj.edit	=	function(data){
+					return $http.post(urls.BASE + 'categories/edit',data)
+				};
 				
 				
 			return categoriesObj;	

@@ -25,7 +25,7 @@
 					 	.then(function(success){
 						 	userService.changeStatus($id);
 						 	$scope.data = userService.getData();
-						 	Notification.success('Success notification');
+						 	Notification.success({message: "user "+$option+" successfully"});
 						 	},function(){
 								Notification.warning('error notification');
 						})
@@ -38,7 +38,7 @@
 				if(conf == true) {
 					userFact.delete($id)
 						.then(function(response){
-							Notification.success('Success notification');
+							Notification.success('Deleted successfully');
 				    		userService.spliceData($id,1);
 						},function(){
 							Notification.warning('error notification');
@@ -48,9 +48,8 @@
 					}
 			}
 
-			
-
 		})
+
 		.controller('userControllerEdit',function($state,$stateParams,$scope,userService,rolesFact,userFact,Notification){
 			$scope.id = $stateParams.id;
 			$scope.formRole ={};
@@ -76,7 +75,7 @@
 		     			}else {
 
 		     			}
-			     			Notification.success('Success notification');
+			     			Notification.success('Edited successfully');
 			     			$state.go('index.users');
 		     		},function(){
 		     			Notification.warning('error notification');
@@ -109,20 +108,13 @@
 		     				user.id = response.data.userid;
 			     			userService.pushData(user);
 			     			console.log(user);
-			     			Notification.success('Success notification');
+			     			Notification.success('New user Added');
 			     			$state.go('index.users');
 		     			}
 		     		},function(){
 		     			Notification.warning('error notification');
 		     		})	
 		    };
-		})
-
-		.controller('userControllerSettings',function($state,$scope,$stateParams,rolesService,userService){
-		
-			$scope.userDetails = userService.findData($stateParams.id);
-			$scope.role_name = rolesService.findData($scope.userDetails.role_id);
-									
 		})
 
 		.controller('userControllerTrash',function($scope,Notification,userFact,$state,userService){
@@ -137,8 +129,9 @@
 				if(conf == true) {
 					userFact.deleteUserPermanent(id)
 						.then(function(success){
-							Notification.success('Success notification');
-				    		userService.spliceData(id,1);
+							Notification.success('Deleetd the user Permanaently');
+							var $id = {'id' : id};
+				    		userService.spliceData($id,1);
 				    		
 						},function(error){
 							Notification.warning({message: 'Errorr', title: 'Error Occured'});
@@ -153,9 +146,9 @@
 					userFact.userRestore(id)
 						.then(function(success){
 							console.log(success.data.user);
-							Notification.success('Success notification');
-				    		userService.spliceData(id,1);
-				    		// userService.pushData(success.data.user);
+							Notification.success('Restored successfully');
+							var $id = {'id' : id};
+				    		userService.spliceData($id,1);
 				    		
 						},function(error){
 							Notification.warning({message: 'Errorr', title: 'Error Occured'});

@@ -3,16 +3,40 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Transactions</h5>
-                <form name="SearchTransaction">
-                    <input type="datetime" date-time ng-model="startDate" format="yyyy-MM-dd" view="date" min-view="date" auto-close="true" placeholder="Y-M-D" class="col-md-2 col-sm-5" name="date">
-                    <input type="datetime" date-time ng-model="endDate" format="yyyy-MM-dd" view="date" min-view="date" auto-close="true" placeholder="Y-M-D" class="col-md-2 col-sm-5" name="date">
-                    <div ibox-tools></div>
+                <div class="col-md-12">
+                <h5>Transactions</h5>                
+                <a class = 'pull-right btn btn-primary minuspad' ui-sref="index.transactions.add">Add</a> 
+                <form class="form-horizontal" name="transactionSearch">
+                    <div class="col-md-2 col-sm-5 minuspad">
+                        <input type="date-picker" date-time ng-model="startDate" format="dd-MM-yyyy" view="date" min-view="date" auto-close="true" placeholder="From" class="form-control" name="startDate">
+                    </div>
+                    <div class="col-md-2 col-sm-5 minuspad">
+                        <input type="date-picker" date-time ng-model="endDate" format="dd-MM-yyyy" view="date" min-view="date" auto-close="true" placeholder="To" class="form-control" name="endDate">
+                    </div> 
+                    <div class="col-md-1 col-sm-5">
+                        <button class=" btn btn-primary minuspad" type="submit" ng-click="search(startDate,transactionType,userId)">Search</button>
+                    </div>
                 </form>
-
-                
+                    <div class="col-md-2 col-sm-5">
+                        <select class="form-control minuspad" name="transaction_type" ng-model="transactionType" ng-change="search(date,transactionType,userId)">
+                                <option value="">All Type</option>
+                                <option value="credit">Credit</option>
+                                <option value="debit">Debit</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-sm-5">
+                        <select class="form-control minuspad"
+                            ng-change="search(date,transactionType,userId)"
+                            ng-model="userId"
+                            ng-options="user.id as user.name for user in users">
+                        </select>
+                    </div> 
+                    <div class="col-md-1 col-sm-5">
+                        <button ng-if="notFound!=true"class=" btn btn-primary minuspad"ng-click="print()">Save as pdf</button>
+                    </div>  
+                    <!-- <pdfviewer src="{{pdfURL}}" on-page-load='pageLoaded(page,total)' id="viewer" load-progress='loadProgress(loaded, total, state)'></pdfviewer>  -->                
+                </div>
             </div>
-            
             <div class="ibox-content">
 
                 <table class="table">
@@ -28,6 +52,7 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <tr ng-show = "notFound"><td colspan="7" align = "center">No Transaction Found<td><tr>
                     <tr ng-repeat="transaction in data">
                         <td>{{ transaction.title}}</td>
                         <td>{{ transaction.description }}</td>

@@ -11,6 +11,7 @@
 		])
 	.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 			$httpProvider.defaults.withCredentials = true;
+
 	      	$stateProvider
 	      		.state('login',{
 	      			url :'/login',
@@ -34,6 +35,7 @@
 		loginFact.checkLogedIn()
 	    	.then(function(e){
 	    		$scope.userData = e.data.user;
+	    		$scope.admin = $scope.userData.role_id == 2 ? true : false;
 	    		(e.data.status == 1) ? $state.go($state.$current) : $state.go('login')
 
 	    	})

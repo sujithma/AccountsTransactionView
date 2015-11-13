@@ -12,7 +12,7 @@
                     <div class="form-group"><label class="col-lg-2 control-label">Role</label>
 
                         <div class="col-lg-10" ng-init="role_name = role.name">
-                            <input type="text" name="role_name" class="form-control" placeholder="{{role}}" ng-model="role.name"  required> 
+                            <input type="text" name="role_name" class="form-control" placeholder="{{role}}" ng-model="role"  required> 
                             <div ng-messages="editRole.role_name.$error" style="color:maroon" role="alert" ng-show="editRole.role_name.$touched">
                                 <div ng-message="required">Please Enter Role Name</div>    
                                 </div>
@@ -21,7 +21,7 @@
                    
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-sm btn-white" type="submit" ng-click="update()">Save</button>
+                            <button class="btn btn-sm btn-white" type="submit" ng-click="update(role)">Save</button>
                         </div>
                     </div>
                 </form>

@@ -46,13 +46,13 @@
 		.controller('rolesControllerEdit',function($state,$stateParams,$scope,rolesService,rolesFact,Notification){
 			$scope.id = $stateParams.id;
 			$scope.role = rolesService.findData($scope.id);
-			$scope.update	=	function(){
 
-			console.log($scope.role_name);
-			if( $scope.role_name == null ||  $scope.role_name == ''){
+			$scope.update	=	function(role){
+			console.log(role);
+			if( role == null ||  role == ''){
 					return false;
 				}else{
-					var $role =	{'role_name': $scope.role_name,'id':$scope.id};
+					var $role =	{'role_name': role,'id':$scope.id};
 				rolesFact.update($role)
 					.then(function(resp){
 						rolesService.updateData($role);

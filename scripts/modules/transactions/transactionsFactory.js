@@ -22,7 +22,9 @@
 				transactionsObj.transactionRestore = function(id){
 					return $http.post(urls.BASE + 'transactions/restore',{id:id})
 				};
-				
+				transactionsObj.search = function(type,userId){
+					return $http.post(urls.BASE + 'transactions/search',{type:type,userId:userId})
+				};
 				
 			return transactionsObj;	
 		}]);

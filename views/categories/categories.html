@@ -1,77 +1,44 @@
 <div class="wrapper wrapper-content animated fadeInRight" >
-<div class="row" ui-view>
-    <div class="col-lg-12">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>Categories</h5>
-                <div ibox-tools></div>                
-            </div>
+    <div class="row" ui-view>
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Categories</h5>
+                    <a class = 'pull-right btn btn-primary minuspad' ui-sref="index.categories.add">Add</a>                
+                </div>
+            </div>    
             <div class="ibox-content">
                 <uib-accordion close-others="oneAtATime"  ng-repeat="category in parentCategories">
-                <uib-accordion-group is-open="status.open">
-                  <uib-accordion-heading>
-                    {{category.name}}
-                    <a class="pull-right" ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a>
-                    <a class="pull-right" ui-sref="index.categories.edit({id:category.id})"> 
-                        <i class="glyphicon glyphicon-edit"></i>
-                    </a>
-                    <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-
-                  </uib-accordion-heading>
-                  <table class="table">
+                    <uib-accordion-group is-open="status.open">
+                        <uib-accordion-heading>
+                            {{category.name}}
+                            <a  ng-show = 'admin'class="pull-right" ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a  ng-show = 'admin'class="pull-right" ui-sref="index.categories.edit({id:category.id})"> 
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                           
+                        </uib-accordion-heading>
+                        <table class="table">
                             <tbody>
+                                <tr ng-if="category.subCategories.length==0"><td align = "center">Subcategories not Defined<td><tr>
                                 <tr ng-repeat="sub in category.subCategories">
                                     <td>{{ sub.name }}</td>
-                                    <td>
-                                        <a ui-sref="index.categories.edit({id:sub.id})"> 
+                                    <td ng-show = 'admin'>
+                                        <a class="pull-right" ng-click="delete(sub.id)"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a class="pull-right" ui-sref="index.categories.edit({id:sub.id})"> 
                                             <i class="glyphicon glyphicon-edit"></i>
                                         </a>
-                                        <a ng-click="delete(sub.id)"><i class="glyphicon glyphicon-trash"></i></a>
+                                        
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                </uib-accordion-group>
-
-                
-                    <!-- <uib-accordion-group heading="{{category.name}}">
-                        <table class="table">
-                            <tbody>
-                                <tr ng-repeat="sub in category.subCategories">
-                                    <td>{{ sub.name }}</td>
-                                    <td><a ui-sref="index.categories.edit({id:sub.id})"> <i class="glyphicon glyphicon-edit"></i></a>
-                                        <a ng-click="delete(sub.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </uib-accordion-group> -->
+                    </uib-accordion-group>
                 </uib-accordion>   
-            </div>   
-             <!-- <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Category Title</th>
-                        <th>Parent Id</th>
-                        <th>Transaction Type</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="category in data">
-                        <td>{{ category.id }}</td>
-                        <td>{{ category.name }}</td>
-                        <td>{{ category.parent_id }}</td>
-                        <td>{{ category.transaction_type == 1 ? 'Credit' : 'Debit' }}</td>
-
-                        <td><a ui-sref="index.categories.edit({id:category.id})"> <i class="glyphicon glyphicon-edit"></i></a>
-                            <a ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
-                    </tr>
-                    </tbody>
-                </table> -->
-
-            </div>
+            </div> 
         </div>
     </div>
+</div>
     
 
 </div>

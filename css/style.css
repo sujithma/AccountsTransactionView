@@ -6426,3 +6426,7 @@ body.skin-3 {
 .minuspad {
     margin-top: -9px;
 }
+
+.ui-notification.success {
+    color: #0C8E94;
+}
