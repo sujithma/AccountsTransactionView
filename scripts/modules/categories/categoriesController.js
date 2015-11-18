@@ -5,11 +5,13 @@
 			categoriesFact.viewCategories()
 				.then(function(responseData){
 					categoryService.setData(responseData.data)
+					$scope.categories = responseData.data;
+					console.log($scope.categories);
 					$scope.parentCategories	= categoryService.parentCategory();
-					console.log(responseData.data);
 				})
 			var authStatus = authService.authenticate();
 			$scope.admin = authStatus == 'admin' ? true : false;
+			console.log("status"+authStatus);
 
 			// $scope.subCategories = function(id) {
 			// 	$scope.subCategories = categoryService.subCategories(id);

@@ -4,11 +4,36 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Categories</h5>
-                    <a class = 'pull-right btn btn-primary minuspad' ui-sref="index.categories.add">Add</a>                
+                    <a class = 'pull-right btn btn-primary minuspad' ui-sref="index.categories.add">Add</a>
+                    <div class="col-md-2 col-sm-5 minuspad">
+                        <input type="text" placeholder="Name for Search" class="form-control" data-ng-model="SearchName">
+                    </div>                
                 </div>
             </div>    
             <div class="ibox-content">
-                <uib-accordion close-others="oneAtATime"  ng-repeat="category in parentCategories">
+                <table class="table" ng-show='SearchName'>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Parent Category</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="cat in categories | filter:cat.name=SearchName" class="wrapper wrapper-content animated fadeIn" >
+                  <!-- <div ng-show="!cat.name">{{cat}}
+                        <td>ascdsa<td>
+                    </div> -->
+                    <td>{{ cat.name }}</td>
+                    <td>{{cat.parentName}}</td>
+                    <td>
+                        <a ng-show = 'admin' ng-click="delete(cat.id)"> <i class="glyphicon glyphicon-trash"></i></a>
+                        <a ng-show = 'admin' ui-sref="index.categories.edit({id:cat.id})"><i class="glyphicon glyphicon-edit"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+                <uib-accordion close-others="oneAtATime" ng-if="!SearchName" ng-repeat="category in parentCategories">
                     <uib-accordion-group is-open="status.open">
                         <uib-accordion-heading>
                             {{category.name}}

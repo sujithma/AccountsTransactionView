@@ -6430,3 +6430,12 @@ body.skin-3 {
 .ui-notification.success {
     color: #0C8E94;
 }
+.prfl-btn{
+    margin-left: 5px;
+}
+.prfl{
+    margin-bottom: 5px;
+}
+[date-picker]{
+    background-color:#BCF9D5!important;
+}

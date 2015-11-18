@@ -23,7 +23,7 @@
                 <div class="form-group"><label class="col-lg-2 control-label">Parent Category</label>
                     <div class="col-lg-10">
                         <select class="form-control" 
-                            ng-change="subCategories(parentCategory_id)"
+                            ng-change="findCategories(parentCategory_id)"
                             ng-model="parentCategory_id"
                             ng-options="item.id as item.name for item in categories" required>
                         </select>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
-                        <button class="btn btn-sm btn-white" type="submit" ng-click="save(transaction)">Save</button>
+                        <button class="btn btn-sm btn-white" type="submit" ng-click="save(transaction,subCategory_id,transaction_type)">Save</button>
                     </div>
                 </div>
             </form>

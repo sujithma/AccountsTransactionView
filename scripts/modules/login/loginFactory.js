@@ -27,15 +27,36 @@
 			      .then(function(response){
 			    	return response;
 				})
-			 }	    
-			 loginObj.logout = function() {
+			 }	
+
+			loginObj.logout = function() {
 				return $http.get(urls.BASE +'logout')
 			      .then(function(response){
 			    	return response;
 				})
-			 }	    
-			 
-			 
-			 return loginObj;
+			}
+
+			loginObj.saveProfile = function($user){
+				return $http.post(urls.BASE + 'profile/save',$user)
+			};
+
+			loginObj.profile = function(){
+				return $http.get(urls.BASE + 'profile')
+			};
+
+			loginObj.editImage = function(file){
+				
+				// var payLoad = new FormData();
+			 //    for (var attrname in $image) {
+			 //    	payLoad.append(attrname, $image[attrname]);
+			 //    }
+			    // var fd = new FormData();
+			    // fd.append("file", files[0]);
+
+				return $http.post(urls.BASE + 'profile/edit/image', file)
+			};
+
+
+			return loginObj;
 			}]);
 })();	

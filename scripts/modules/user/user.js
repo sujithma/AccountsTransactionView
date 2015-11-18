@@ -7,6 +7,12 @@
 			$stateProvider
 	       		.state('index.users',{
 	          		url:'/users',
+	        //   		data: {
+				     //    permissions: {
+					    //       only: ['admin']
+					    //     }
+					    // },
+
 	          		controller:'userController',
 	                templateUrl: 'views/users/users.html'
 	          	})
