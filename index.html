@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en" ng-app='AccountsTransaction'>
 <head>
-    
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -9,15 +8,15 @@
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
     <link href="css/angular/angular-ui-notification.min.css" rel="stylesheet">
     <link href="css/angular/angular-datepicker.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Main Inspinia CSS files -->
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
+    
 
 </head>
 <body>
@@ -26,81 +25,81 @@
   </div>
   <!-- Scripts Open  -->
   <!-- Angular Base  -->
+    
+    <script type="text/javascript" src="scripts/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/plugins/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/bootstrap/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="scripts/lib/ui-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/angular/angular-datepicker.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/directives.js"></script>
 
-  <script type="text/javascript" src="scripts/lib/jspdf/jspdf.min.js"></script>
-  <script type="text/javascript" src="scripts/lib/jspdf/jspdf.plugin.autotable.src.js"></script>
+    <script type="text/javascript" src="scripts/lib/ui-router/angular-ui-router.min.js">   </script> 
+    <script type="text/javascript" src="scripts/lib/angular/angular-messages.js"></script>
+    <script type="text/javascript" src="scripts/lib/plugins/metisMenu/jquery.metisMenu.js"></script>
 
-  <script type="text/javascript" src="scripts/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="scripts/lib/plugins/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="scripts/lib/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/plugins/iCheck/icheck.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/angular/angular-ui-notification.min.js"></script>
 
-  
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/jspdf/jspdf.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/jspdf/jspdf.plugin.autotable.src.js"></script>
 
     
-  <script type="text/javascript" src="scripts/lib/bootstrap/bootstrap.min.js"></script>
-  <script type="text/javascript" src="scripts/lib/ui-bootstrap/ui-bootstrap.min.js"></script>
-  <script type="text/javascript" src="scripts/lib/angular/angular-datepicker.min.js"></script>
-  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
-
-  <script type="text/javascript" src="scripts/lib/directives.js"></script>
+    
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
   
-  <script type="text/javascript" src="scripts/lib/ui-router/angular-ui-router.min.js">   </script>       
-  <script type="text/javascript" src="scripts/lib/angular/angular-messages.js"></script>
-  <script type="text/javascript" src="scripts/lib/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script type="text/javascript" src="scripts/lib/angular/angular-permission.js"></script>
   
-  <!-- SlimScroll -->
-  <script type="text/javascript" src="scripts/lib/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-  <script type="text/javascript" src="scripts/lib/angular/angular-permission.js"></script>
-  <script type="text/javascript" src="scripts/lib/plugins/iCheck/icheck.min.js"></script>
-  <script type="text/javascript" src="scripts/lib/angular/angular-ui-notification.min.js"></script>
 
-  <script type="text/javascript" src="scripts/factory.js"></script>
-  <script type="text/javascript" src="scripts/controllers.js"></script>
-  <script type="text/javascript" src="scripts/app.js"></script>
-  <script type="text/javascript" src="scripts/directives.js"></script>
-  <script type="text/javascript" src="scripts/services.js"></script>
-  <!-- Home Module  -->
-  <script type="text/javascript" src="scripts/modules/user/userService.js"></script>
-  <script type="text/javascript" src="scripts/modules/user/userController.js"></script>
-  <script type="text/javascript" src="scripts/modules/user/userFactory.js"></script>
-  <script type="text/javascript" src="scripts/modules/user/user.js"></script>
-  <!-- DashBoard Module  -->
-  <script type="text/javascript" src="scripts/modules/dashboard/dashboard.js"></script>
-  <script type="text/javascript" src="scripts/modules/dashboard/dashboardController.js"></script>
-  <script type="text/javascript" src="scripts/modules/dashboard/dashboardFactory.js"></script>
-  <!-- Login Module  -->
-   <script type="text/javascript" src="scripts/modules/login/authService.js"></script>
-  <script type="text/javascript" src="scripts/modules/login/loginFactory.js"></script>
-  <script type="text/javascript" src="scripts/modules/login/loginController.js"></script>
-  <script type="text/javascript" src="scripts/modules/login/login.js"></script>
-   <!-- Roles Module  -->
-  <script type="text/javascript" src="scripts/modules/roles/rolesService.js"></script>
-  <script type="text/javascript" src="scripts/modules/roles/rolesFactory.js"></script>
-  <script type="text/javascript" src="scripts/modules/roles/rolesController.js"></script>
-  <script type="text/javascript" src="scripts/modules/roles/roles.js"></script>
-   <!-- Categories Module  -->
-  <script type="text/javascript" src="scripts/modules/categories/categoriesService.js"></script>
-  <script type="text/javascript" src="scripts/modules/categories/categoriesFactory.js"></script>
-  <script type="text/javascript" src="scripts/modules/categories/categoriesController.js"></script>
-  <script type="text/javascript" src="scripts/modules/categories/categories.js"></script>
+    <script type="text/javascript" src="scripts/factory.js"></script>
+    <script type="text/javascript" src="scripts/controllers.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/directives.js"></script>
+    <script type="text/javascript" src="scripts/services.js"></script>
+    <!-- Home Module  -->
+    <script type="text/javascript" src="scripts/modules/user/userService.js"></script>
+    <script type="text/javascript" src="scripts/modules/user/userController.js"></script>
+    <script type="text/javascript" src="scripts/modules/user/userFactory.js"></script>
+    <script type="text/javascript" src="scripts/modules/user/user.js"></script>
+    <!-- DashBoard Module  -->
+    <script type="text/javascript" src="scripts/modules/dashboard/dashboard.js"></script>   
+    <script type="text/javascript" src="scripts/modules/dashboard/dashboardController.js"></script>
+    <script type="text/javascript" src="scripts/modules/dashboard/dashboardFactory.js"></script>
+    <!-- Login Module  -->
+    <script type="text/javascript" src="scripts/modules/login/authService.js"></script>
+    <script type="text/javascript" src="scripts/modules/login/loginFactory.js"></script>
+    <script type="text/javascript" src="scripts/modules/login/loginController.js"></script>
+    <script type="text/javascript" src="scripts/modules/login/login.js"></script>
+    <!-- Roles Module  -->
+    <script type="text/javascript" src="scripts/modules/roles/rolesService.js"></script>
+    <script type="text/javascript" src="scripts/modules/roles/rolesFactory.js"></script>
+    <script type="text/javascript" src="scripts/modules/roles/rolesController.js"></script>
+    <script type="text/javascript" src="scripts/modules/roles/roles.js"></script>
+    <!-- Categories Module  -->
+    <script type="text/javascript" src="scripts/modules/categories/categoriesService.js"></script>
+    <script type="text/javascript" src="scripts/modules/categories/categoriesFactory.js"></script>
+    <script type="text/javascript" src="scripts/modules/categories/categoriesController.js"></script>
+    <script type="text/javascript" src="scripts/modules/categories/categories.js"></script>
      <!-- Transactions Module  -->
-  <script type="text/javascript" src="scripts/modules/transactions/transactionsService.js"></script>
-  <script type="text/javascript" src="scripts/modules/transactions/transactionsFactory.js"></script>
-  <script type="text/javascript" src="scripts/modules/transactions/transactionsController.js"></script>
-  <script type="text/javascript" src="scripts/modules/transactions/transactions.js"></script>
-   <!-- navigation Module  -->
-  <script type="text/javascript" src="scripts/modules/navigation/navigation.js"></script>
-<!--
-  <script type="text/javascript" src="scripts/lib/jspdf/libs/sprintf.js"></script>
-  <script type="text/javascript" src="scripts/lib/jspdf/libs/base64.js"></script>
+    <script type="text/javascript" src="scripts/modules/transactions/transactionsService.js"></script>
+    <script type="text/javascript" src="scripts/modules/transactions/transactionsFactory.js"></script>
+    <script type="text/javascript" src="scripts/modules/transactions/transactionsController.js"></script>
+    <script type="text/javascript" src="scripts/modules/transactions/transactions.js"></script>
+    <!-- navigation Module  -->
+    <script type="text/javascript" src="scripts/modules/navigation/navigation.js"></script>
+    <!--
+    <script type="text/javascript" src="scripts/lib/jspdf/libs/sprintf.js"></script>
+    <script type="text/javascript" src="scripts/lib/jspdf/libs/base64.js"></script>
 
-   
-  <script type="text/javascript" src="scripts/lib/pdf/pdf.js"></script>
-  <script type="text/javascript" src="scripts/lib/pdf/pdf.compat.js"></script>
-  <script type="text/javascript" src="scripts/lib/pdf/ng-pdfviewer.js"></script>-->
 
-  <script type="text/javascript" src="//cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/pdf/pdf.js"></script>
+    <script type="text/javascript" src="scripts/lib/pdf/pdf.compat.js"></script>
+    <script type="text/javascript" src="scripts/lib/pdf/ng-pdfviewer.js"></script>-->
+
+    <script type="text/javascript" src="//cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
 
 </body>
 </html>

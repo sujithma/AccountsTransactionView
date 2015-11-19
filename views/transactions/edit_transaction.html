@@ -5,26 +5,35 @@
             <div ibox-tools></div>
         </div>
         <div class="ibox-content">
-            <form class="form-horizontal" name="addTransaction">
+            <form class="form-horizontal" name="editTransaction">
                <div class="form-group"><label class="col-lg-2 control-label">Title</label>
-                    <div class="col-lg-10"><input type="text" name="title" value="{{data.title}}" class="form-control" ng-model="transaction.title" required> 
-                        <div ng-messages="addTransaction.title.$error"  style="color:maroon" role="alert" ng-show="addTransaction.title.$touched" >
+                    <div class="col-lg-10"><input type="text" name="title" class="form-control" ng-model="transaction.title" required> 
+                        <div ng-messages="editTransaction.title.$error"  style="color:maroon" role="alert" ng-show="editTransaction.title.$error" >
                              <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                         </div> 
                     </div>
                 </div>
                 <div class="form-group"><label class="col-lg-2 control-label">Description</label>
-                    <div class="col-lg-10"><input type="text" name="description" placeholder="{{data.description}}" class="form-control" ng-model="transaction.description" required> 
-                        <div ng-messages="addTransaction.description.$error"  style="color:maroon" role="alert" ng-show="addTransaction.description.$touched" >
+                    <div class="col-lg-10"><input type="text" name="description" class="form-control" ng-model="transaction.description" required> 
+                        <div ng-messages="editTransaction.description.$error"  style="color:maroon" role="alert" ng-show="editTransaction.description.$error" >
                              <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                         </div> 
                     </div>
                 </div>
-                <div class="form-group"  ng-if="categories"><label class="col-lg-2 control-label">Category</label>
+                <div class="form-group"><label class="col-lg-2 control-label">Parent Category</label>
                     <div class="col-lg-10">
                         <select class="form-control" 
-                            ng-model="transaction.category_id"
+                            ng-change="findCategories(parentCategory_id)"
+                            ng-model="parentCategory_id"
                             ng-options="item.id as item.name for item in categories" required>
+                        </select>
+                    </div> 
+                </div>
+                <div class="form-group"><label class="col-lg-2 control-label">Sub Category</label>
+                    <div class="col-lg-10">
+                        <select class="form-control" 
+                            ng-model="subCategory_id"
+                            ng-options="item.id as item.name for item in subCategories" required>
                         </select>
                     </div> 
                 </div>
@@ -39,7 +48,7 @@
                 <div class="form-group"><label class="col-lg-2 control-label">Date</label>
                     <div class="col-lg-10">
                         <input type="datetime" date-time ng-model="transaction.date" format="yyyy-MM-dd" view="date" min-view="date" auto-close="true" placeholder="{{data.transaction_date}}" class="form-control" name="date" required> 
-                        <div ng-messages="addTransaction.date.$error"  style="color:maroon" role="alert" ng-show="addTransaction.date.$touched" >
+                        <div ng-messages="editTransaction.date.$error"  style="color:maroon" role="alert" ng-show="editTransaction.date.$error" >
                              <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                         </div> 
                     </div>

@@ -83,24 +83,41 @@
 			}	
 		})
 
-		.controller('transactionControllerAdd',function($scope,transactionsFact,$state,transactionsService,categoriesFact,categoryService,Notification){
+		.controller('transactionControllerAdd',function($scope,transactionsFact,$stateParams,$state,transactionsService,categoriesFact,categoryService,Notification){
+				transactionsFact.viewTransactions()
+					.then(function(transactionData){
+						transactionsService.setData(transactionData.data);
+					})
 				categoriesFact.viewCategories()
 				.then(function(responseData){
 					categoryService.setData(responseData.data)
 					if(responseData.data.length != 0){
 						$scope.categories	=	categoryService.parentOnlySubCategory();
 						$scope.parentCategory_id = $scope.categories[0].id;
+						if($scope.parentCategory_id){
+							$scope.findCategories($scope.parentCategory_id);
+						}
+						else{
+							$scope.subCategories = false;
+						}
 					}else{
 						$scope.categories = false;
 					}
-
-					
-					//console.log($scope.data);
-					});
+				});
 				$scope.transaction_type = "credit";
-				$scope.subCategories = [{id:0, name : "Select a Parent Category"}];
-				$scope.subCategory_id = $scope.subCategories[0].id;
 
+				$scope.EditId = $stateParams.id;
+				if ($scope.EditId)  {
+					$scope.transaction	= transactionsService.findData($scope.EditId);
+					$scope.subCategory_id = $scope.transaction.category_id;
+					$scope.transaction_type = $scope.transaction.transaction_type;	
+
+					// $scope.parentCategory_id = $scope.transaction.categories.parent_id;
+					// console.log("wefew"+$scope.parentCategory_id);
+					// $scope.findCategories($scope.parentCategory_id);
+					// $scope.subCategory_id = $scope.transaction.category_id;
+
+				}
 
 				$scope.findCategories = function(parentId) {	
 					var sub = categoryService.findData(parentId);
@@ -111,20 +128,26 @@
 				}
 
 					$scope.save = function(transaction,category_id,type){
-						console.log(transaction);
 						var $category_id = (typeof(category_id) != 'undefined') ? category_id : '';
-						var $data = {title: transaction.title,
+						var id = $scope.EditId ? $scope.EditId : 0;
+						var $data = {title : transaction.title,
 									description : transaction.description,
 									category_id : $category_id,
 									transaction_type : type,
-									date:transaction.date
+									amount : transaction.amount,
+									date : transaction.transaction_date,
+									editId : id
 								};
-						//console.log(category);
 						transactionsFact.addTransaction($data)
 						.then(function(success){
-							console.log(success.data)					
-							transactionsService.pushData(success.data.user);
-							Notification.success('New Transaction Added');
+							if($scope.EditId){	
+								transactionsService.updateData(success.data.user);
+								Notification.success('Transaction Updated');
+							}
+							else {					
+								transactionsService.pushData(success.data.user);
+								Notification.success('New Transaction Added');	
+							}
 							$state.go('index.transactions');
 						},function(error){
 							Notification.warning({message: 'Errorr', title: 'Error Occured'});
@@ -132,32 +155,29 @@
 				}
 
 		})
-	// .controller('transactionControllerEdit',function($scope,transactionsFact,$state,transactionsService,$stateParams){
-	// 		$scope.id = $stateParams.id;
-	// 				$scope.data	= transactionsService.findData($scope.id);
-	// 				console.log($scope.data);
-	// 				})
-	// 				$scope.save = function(transaction){
-	// 				var $category_id = (typeof(transaction.category_id) != 'undefined') ? transaction.category_id : '';
-	// 				var $data = {title: transaction.title,
-	// 							description : transaction.description,
-	// 							category_id : $category_id,
-	// 							transaction_type : transaction.transaction_type,
-	// 							date:transaction.date
-	// 						};
-	// 				//console.log(category);
-	// 				transactionsFact.addTransaction($data)
-	// 				.then(function(success){
-	// 					console.log(success.data.status)					
-	// 					transactionsService.pushData($data);
-	// 					$state.go('index.transactions');
-						
-						
-	// 				},function(error){
+		// .controller('transactionControllerEdit',function($scope,transactionsFact,$state,transactionsService,$stateParams){
+		// 	$scope.id = $stateParams.id;
+		// 			$scope.data	= transactionsService.findData($scope.id);
+		// 			console.log($scope.data);
+		// 			$scope.save = function(transaction){
+		// 			var $category_id = (typeof(transaction.category_id) != 'undefined') ? transaction.category_id : '';
+		// 			var $data = {title: transaction.title,
+		// 						description : transaction.description,
+		// 						category_id : $category_id,
+		// 						transaction_type : transaction.transaction_type,
+		// 						date:transaction.date
+		// 						};
+		// 			//console.log(category);
+		// 			transactionsFact.addTransaction($data)
+		// 			.then(function(success){
+		// 				console.log(success.data.status)					
+		// 				transactionsService.pushData($data);
+		// 				$state.go('index.transactions');
+		// 			},function(error){
 
-	// 				})
-	// 			}
-	// 	})
+		// 			})
+		// 		}
+		// })
 
 		.controller('transactionsControllerTrash',function($scope,Notification,transactionsFact,$state,transactionsService){
 			transactionsFact.viewTransactionTrash()

@@ -32,11 +32,13 @@
 				var $data = {};
 				for(var i = 0, len = transactionsData.length; i < len; i++) {
 				    if (transactionsData[i].id == id) {
-				         $data = {
-				        	'title' :transactionsData[i].title,
-				        	'description':transactionsData[i].description,
-				        	'transaction_type':transactionsData[i].transaction_type,
-				        	'transaction_date':transactionsData[i].transaction_date};
+						console.log(transactionsData[i]);
+				         $data = transactionsData[i];
+				         // {
+				        	// 'title' :transactionsData[i].title,
+				        	// 'description':transactionsData[i].description,
+				        	// 'transaction_type':transactionsData[i].transaction_type,
+				        	// 'transaction_date':transactionsData[i].transaction_date};
 				        
 				        break;
 				    }
@@ -79,10 +81,11 @@
 				return data;
 
 			}
-			this.updateData = function(role){
+			this.updateData = function(transaction){
 				for(var i = 0, len = transactionsData.length; i < len; i++) {
-				    if (transactionsData[i].id == role.id) {
-				        	transactionsData[i].name = role.role_name;
+				    if (transactionsData[i].id == transaction.id) {
+				        	transactionsData[i] =transaction;
+				        	console.log(transactionsData[i]);
 				        break;
 				    }
 				}

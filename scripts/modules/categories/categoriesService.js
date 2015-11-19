@@ -68,13 +68,12 @@
 				categoryData.splice($id,count);
 			
 			 }
-			 this.findData = function(id){
+			 this.findData = function(id){			 	
 			 	var $data = {};
 
 				for(var i = 0, len = categoryData.length; i < len; i++) {
 				    if (categoryData[i].id == id) {
 				        $data = categoryData[i];
-				        
 				        break;
 				    }
 				}

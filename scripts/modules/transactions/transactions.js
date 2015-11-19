@@ -28,8 +28,8 @@
 				.state('index.transactions.edit',{
 					url	:	'/edit/:id',
 					cache : false,
-					controller	:	'transactionControllerEdit',
-					templateUrl	:	'views/transactions/edit_transaction.html'
+					controller	:	'transactionControllerAdd',
+					templateUrl	:	'views/transactions/add_transaction.html'
 
 				})
 				
