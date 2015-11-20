@@ -22,7 +22,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="user in data | filter:user.name=searchName" class="wrapper wrapper-content animated fadeIn" >
+                <tr ng-repeat="user in users | filter:user.name=searchName" class="wrapper wrapper-content animated fadeIn" >
                     <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.roles.name }}</td>

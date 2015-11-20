@@ -1,17 +1,20 @@
 (function(){
 	'use strict';
 	var categoriesController	=	angular.module('categoriesController',[])
+
 		.controller('categoriesController',function($scope,categoriesFact,$state,Notification,categoryService,authService){
+		$scope.id =0;
 			categoriesFact.viewCategories()
 				.then(function(responseData){
 					categoryService.setData(responseData.data)
 					$scope.categories = responseData.data;
-					console.log($scope.categories);
+					$scope.id = 19;
+					console.log("in loop"+$scope.id);
 					$scope.parentCategories	= categoryService.parentCategory();
 				})
+			console.log("id"+$scope.id);
 			var authStatus = authService.authenticate();
 			$scope.admin = authStatus == 'admin' ? true : false;
-			console.log("status"+authStatus);
 
 			// $scope.subCategories = function(id) {
 			// 	$scope.subCategories = categoryService.subCategories(id);
@@ -26,8 +29,7 @@
 						.then(function(success){							
 				    		categoryService.spliceData(id,1);
 				    		$scope.parentCategories	= categoryService.parentCategory();
-				    		Notification.success('Success notification');
-				    		console.log($scope.parentCategories);			    		
+				    		Notification.success('Success notification');			    		
 						},function(error){
 							Notification.warning({message: 'Errorr', title: 'Error Occured'});
 						})
@@ -77,22 +79,19 @@
 				$scope.save = function(category,selectedCategory){
 				var $parent_id = (typeof(selectedCategory.parent_id) != 'undefined') ? selectedCategory.parent_id : '';
 				var $data = {name: category.name,parent_id : $parent_id};
-				//console.log(category);
 				categoriesFact.addCategories($data)
 					.then(function(success){
 						console.log(success.data.status)
 						if(success.data.status == 409){
 							$scope.exist = true;
 						}else{
-							$data.id = success.data.id;
-							console.log($data);
-							categoryService.pushData($data);
-							Notification.success('Success notification');
+							categoryService.pushData(success.data);
+							Notification.success('New category Added');
 							$state.go('index.categories');
 						}
 						
 					},function(error){
-
+						Notification.warning('error notification');
 					})
 
 
@@ -152,9 +151,15 @@
 .controller('categoriesControllerTrash',function($scope,categoriesFact,$state,Notification,categoryService){
 			categoriesFact.viewCategoriesTrash()
 				.then(function(responseData){
+					console.log(responseData.data);
 					categoryService.setData(responseData.data)
 					$scope.data	=	categoryService.getData();
-					console.log($scope.data);
+				})
+				categoriesFact.viewCategories()
+				.then(function(responseData){
+					categoryService.setData(responseData.data)
+					$scope.categories = responseData.data;
+					$scope.parentCategories	= categoryService.parentCategory();
 				})
 
 			$scope.delete = function(id){

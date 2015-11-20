@@ -6439,3 +6439,7 @@ body.skin-3 {
 [date-picker]{
     background-color:#BCF9D5!important;
 }
+
+#page-wrapper {
+    min-height: 667px;
+}

@@ -2,15 +2,14 @@
 	'use strict';
 	var userController	=	angular.module('userController',[])
 		.controller('userController',function($scope,userFact,$state,Notification,userService,rolesService){
-			
 				userFact.viewUsers()
 			    	.then(function(e){
 			    		userService.setData(e.data);
-			    		$scope.data = userService.getData();
+			    		$scope.users = userService.getData();
 			    		//console.log($scope.data);
-			    		for(var $data in $scope.data){
-			    			$scope.data[$data].role_name = rolesService.findData($scope.data[$data].role_id);
-						}			
+			   //  		for(var $data in $scope.data){
+			   //  			$scope.data[$data].role_name = rolesService.findData($scope.data[$data].role_id);
+						// }			
 			    	})
 		
 			
@@ -38,8 +37,8 @@
 				if(conf == true) {
 					userFact.delete($id)
 						.then(function(response){
+							userService.spliceData($id,1);
 							Notification.success('Deleted successfully');
-				    		userService.spliceData($id,1);
 						},function(){
 							Notification.warning('error notification');
 						})
@@ -64,19 +63,17 @@
 		    	$scope.save	=	function(user,roleId){
 		     		user.role_id = roleId;
 		     		user.id = $scope.id;
-		    		console.log(user);
 		     		userFact.edit(user)
 		     		.then(function(response){
-		     			console.log(response);
 		     			if(response.data == 'alreday exist')
 		     			{
 		     				$scope.ext = true;
 		     				return false;
 		     			}else {
-
-		     			}
-			     			Notification.success('Edited successfully');
+		     				userService.updateData(response.data.user);
+		     				Notification.success('Edited successfully');
 			     			$state.go('index.users');
+		     			}
 		     		},function(){
 		     			Notification.warning('error notification');
 		     		})	
@@ -85,29 +82,21 @@
 			
 		})
 		.controller('userControllerAdd',function($state,$scope,rolesFact,userFact,userService,Notification){
-			$scope.status = 1;
-			$scope.rolesData = [];
-			$scope.formRole ={};
 			rolesFact.Roles()
 		    	.then(function(e){
 		    		$scope.rolesData = e.data;
-		    		$scope.formRole.roleId = $scope.rolesData[0].id;
-					$scope.user = { role_name : $scope.rolesData[0].name};
+		    		$scope.roleId = $scope.rolesData[0].id;
 		    	})
-		     $scope.save	=	function(user,roleId){
-		     	// if(user.name == null  || user.email == null || user.password == null || user.confirm_password == null){return false;}
+		    $scope.save	=	function(user,roleId){
 		     	user.role_id = roleId;
 		     	userFact.add(user)
 		     		.then(function(response){
-		     			console.log(response.data);
 		     			if(response.data == 'alreday exist')
 		     			{
 		     				$scope.ext = true;
 		     				return false;
 		     			}else{
-		     				user.id = response.data.userid;
-			     			userService.pushData(user);
-			     			console.log(user);
+			     			userService.pushData(response.data.user);
 			     			Notification.success('New user Added');
 			     			$state.go('index.users');
 		     			}
@@ -129,7 +118,7 @@
 				if(conf == true) {
 					userFact.deleteUserPermanent(id)
 						.then(function(success){
-							Notification.success('Deleetd the user Permanaently');
+							Notification.success('Deleted the user Permanaently');
 							var $id = {'id' : id};
 				    		userService.spliceData($id,1);
 				    		

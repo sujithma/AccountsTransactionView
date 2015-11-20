@@ -4,16 +4,8 @@
 		.service('categoryService',function(){
 			var categoryData	=	{};
 			this.setData = function(data) {
-
-				categoryData = data;
-			    for(var i = 0, len = categoryData.length; i < len; i++) {
-				    if (categoryData[i].parent_id != 0) {
-				    	var parent = this.findData(categoryData[i].parent_id);
-				    	categoryData[i].parentName = parent.name;
-				    }
-				}
-				
-			    };
+				categoryData = data;	
+			};
 			this.getData = function(){
 				return categoryData;
 			} 
@@ -54,8 +46,7 @@
 			}  
 			this.pushData = function(data){
 				categoryData.push(data);
-				console.log("push"+data);
-				return categoryData;
+				console.log(categoryData);
 			}
 			this.spliceData = function(index,count){
 				var $id = -1;

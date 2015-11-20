@@ -1,43 +1,39 @@
 <div class="wrapper wrapper-content animated fadeInRight" >
-<div class="row" ui-view>
-    <div class="col-lg-12">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>Categories > Trash</h5>
+    <div class="row" ui-view>
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Categories > Trash</h5>
 
-                <div ibox-tools></div>
-            </div>
-            
-            <div class="ibox-content" ng-if="data != ''">
+                    <div ibox-tools></div>
+                </div>
+                
+                <div class="ibox-content" ng-if="data != ''">
+                    <table class="table" >
+                        <thead>
+                        <tr>
+                            <th>Category Title</th>
+                            <th>Parent Category</th>
+                            <th><th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="category in data">
+                            <td>{{ category.name }}</td>
+                            <td ng-hide="!category.subcategories.name">{{ category.subcategories.name }}</td>
+                            <td ng-show="!category.subcategories.name">Parent</td>
 
-                <table class="table" >
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Category Title</th>
-                        <th>Parent Category</th>
-                        <th><th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="category in data">
-                        <td>{{ category.id }}</td>
-                        <td>{{ category.name }}</td>
-                        <td>{{ category.subcategories.name }}</td>
+                            <td><a ng-click="restore(category.id)"> <i class="glyphicon glyphicon-open"></i></a>
+                                <a ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
 
-                        <td><a ng-click="restore(category.id)"> <i class="glyphicon glyphicon-open"></i></a>
-                            <a ng-click="delete(category.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
-                    </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="ibox-content" ng-if="data == ''">
-                Nothing found
+                </div>
+                <div class="ibox-content" ng-if="data == ''">
+                    Nothing found
+                </div>
             </div>
         </div>
     </div>
-    
-
-</div>
 </div>

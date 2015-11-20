@@ -8,7 +8,7 @@
    			.state('index.home',{
           		url:'/home',
           		//controller:'LoginController',
-                template: '<h1>welcome</h1>'
+              templateUrl: 'views/login/userhome.html'
 	        })
    			.state('index.logout',{
                 url:'/logout',

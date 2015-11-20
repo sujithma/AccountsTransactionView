@@ -25,7 +25,8 @@
                         <td>ascdsa<td>
                     </div> -->
                     <td>{{ cat.name }}</td>
-                    <td>{{cat.parentName}}</td>
+                    <td ng-hide="!cat.subcategories.name">{{ cat.subcategories.name }}</td>
+                    <td ng-show="!cat.subcategories.name">Parent</td>
                     <td>
                         <a ng-show = 'admin' ng-click="delete(cat.id)"> <i class="glyphicon glyphicon-trash"></i></a>
                         <a ng-show = 'admin' ui-sref="index.categories.edit({id:cat.id})"><i class="glyphicon glyphicon-edit"></i></a>

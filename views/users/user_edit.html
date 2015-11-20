@@ -6,10 +6,10 @@
                 <div ibox-tools></div>
             </div>
             <div class="ibox-content">
-                <form class="form-horizontal" name="addUser">
+                <form class="form-horizontal" name="editUser">
                    <div class="form-group"><label class="col-lg-2 control-label">Full Name</label>
                         <div class="col-lg-10"><input type="text" name="name" placeholder="{{UserData.name}}" class="form-control" ng-model="UserData.name" required> 
-                            <div ng-messages="addUser.name.$error"  style="color:maroon" role="alert" ng-show="addUser.name.$touched" >
+                            <div ng-messages="editUser.name.$error"  style="color:maroon" role="alert" ng-show="editUser.name.$touched" >
                                  <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                             </div> 
                         </div>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group"><label class="col-lg-2 control-label">Email</label>
                         <div class="col-lg-10"><input type="email" name="email" placeholder="{{UserData.email}}" class="form-control" ng-model="UserData.email" required> 
-                            <div ng-messages="addUser.email.$error" style="color:maroon" role="alert" ng-show="addUser.email.$touched">  
+                            <div ng-messages="editUser.email.$error" style="color:maroon" role="alert" ng-show="editUser.email.$touched">  
                                 <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                             </div>
                             <div ng-show="ext" style="color:red">Email already taken please Try another one</div>  
@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-sm btn-white" type="submit" ng-click="save(UserData,UserData.role_id)">Save</button>
+                            <button class="btn btn-sm btn-white" type="submit" ng-click="save(UserData,UserData.role_id)" ng-disabled="editUser.$invalid">Save</button>
                         </div>
                     </div>
                 </form>

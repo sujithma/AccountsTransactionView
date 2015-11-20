@@ -8,17 +8,19 @@
             <div class="ibox-content">
                 <form class="form-horizontal" name="addUser">
                    <div class="form-group"><label class="col-lg-2 control-label">Full Name</label>
-                        <div class="col-lg-10"><input type="text" name="name" placeholder="name" class="form-control" ng-model="user.name" required> 
+                        <div class="col-lg-10"><input type="text" name="name" placeholder="name" class="form-control" ng-model="user.fname" required> 
                             <div ng-messages="addUser.name.$error"  style="color:maroon" role="alert" ng-show="addUser.name.$touched" >
                                  <ng-messages-include src="views/common/messages.html"></ng-messages-include>
                             </div> 
                         </div>
                     </div>
+                       
+                   
                     <div class="form-group"><label class="col-lg-2 control-label">Role</label>
                         <div class="col-lg-10">
                             <select
                                 class="form-control"
-                                ng-model="formRole.roleId"
+                                ng-model="roleId"
                                 ng-options="item.id as item.name for item in rolesData" required>
                             </select>
                         </div> 
@@ -48,7 +50,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-sm btn" type="submit" ng-click="save(user,formRole.roleId)">Save</button>
+                            <button class="btn btn-sm btn" type="submit" ng-click="save(user,roleId)" ng-disabled="addUser.$invalid">Save</button>
                         </div>
                     </div>
                 </form>

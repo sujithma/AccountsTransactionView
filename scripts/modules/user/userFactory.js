@@ -7,7 +7,10 @@
 			
 			userObj.viewUsers = function () {
 				return $http.get(urls.BASE + 'users')
-			};	 
+			};	
+			userObj.allUsers = function () {
+				return $http.get(urls.BASE + 'users/all')
+			}; 
 			userObj.add	=	function($user){
 				return $http.post(urls.BASE + 'users/add',$user)
 			};
@@ -21,14 +24,13 @@
 				return $http.post(urls.BASE + 'users/trash')
 			};
 			userObj.userRestore	=	function(id){
-
 				return $http.post(urls.BASE + 'users/restore',{id:id})
 			};
-			userObj.changeStatus	=	function($id){
-				return $http.post(urls.BASE + 'users/status',$id)
+			userObj.userRestore	=	function(id){
+				return $http.post(urls.BASE + 'users/restore',{id:id})
 			};
-			userObj.allUsers	=	function(){
-				return $http.get(urls.BASE + 'users/allUsers')
+			userObj.deleteUserPermanent	=	function($id){
+				return $http.post(urls.BASE + 'users/permanentDelete',{id:$id})
 			};
 			 return userObj;
 			}]);
